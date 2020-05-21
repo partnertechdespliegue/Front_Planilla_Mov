@@ -13,11 +13,14 @@ import android.widget.SearchView;
 
 import com.app.partner.plan.R;
 
+import java.util.ArrayList;
+
 public class GestionBoletas extends Fragment {
 
     ListView lv;
     SearchView searchView;
     ArrayAdapter<String> adapter;
+
     String[] data = {"fecha","fecha","fecha","fecha","fecha","fecha","fecha","fecha","fecha"};
 
 
@@ -26,6 +29,18 @@ public class GestionBoletas extends Fragment {
 
     private String mParam1;
     private String mParam2;
+
+//CLASE PRUEBA
+    /*
+    public class Boletas{
+        String nombre;
+        int img;
+
+         public Boletas(String nombre, Integer img) {
+            this.nombre = nombre;
+            this.img = img;
+        }
+    }*/
 
     public GestionBoletas() {
         // Required empty public constructor
@@ -56,6 +71,18 @@ public class GestionBoletas extends Fragment {
         lv =   (ListView) view.findViewById(R.id.ListViewBoletas);
         adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, data);
         lv.setAdapter(adapter);
+
+
+      /*  ArrayList<Boletas> boletas = new ArrayList<>();
+        boletas.add(new Boletas("fecha",R.drawable.cloud));
+        boletas.add(new Boletas("fecha",R.drawable.cloud));
+        boletas.add(new Boletas("fecha",R.drawable.cloud));
+        boletas.add(new Boletas("fecha",R.drawable.cloud));
+        boletas.add(new Boletas("fecha",R.drawable.cloud));
+
+*/
+
+
         return view;
     }
 }
