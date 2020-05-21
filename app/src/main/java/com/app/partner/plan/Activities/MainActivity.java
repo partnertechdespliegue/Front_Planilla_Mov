@@ -7,6 +7,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,10 +17,13 @@ import com.app.partner.plan.Fragments.AdelantoSueldoFragment;
 import com.app.partner.plan.Fragments.AjusteCuentaFragment;
 import com.app.partner.plan.Fragments.InicioFragment;
 import com.app.partner.plan.Fragments.VacacionesFragment;
+import com.app.partner.plan.Fragments.GestionBoletas;
+import com.app.partner.plan.Fragments.InicioFragment;
 import com.app.partner.plan.R;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
+    public Fragment inicio;
 
     private DrawerLayout drawerMain;
     private NavigationView navigationViewMain;
@@ -30,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         if (savedInstanceState == null) {
             setFragmentDefecto();
         }
@@ -81,8 +86,8 @@ public class MainActivity extends AppCompatActivity {
                         fragmentTransaction = true;
                         break;
                     case R.id.gesBoletas:
-//                        fragment =
-//                        fragmentTransaction = true;
+                        fragment = new GestionBoletas();
+                        fragmentTransaction = true;
                         Toast.makeText(MainActivity.this, "No implementado", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.gesAdelantoSueldo:
@@ -140,4 +145,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 }
