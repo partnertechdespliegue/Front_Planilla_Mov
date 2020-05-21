@@ -3,4 +3,15 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_usuario_login">Usuario</string>
+    <string name="text_contrasena_login">Contraseña</string>
+    <string name="hint_usuario_login">Ingrese usuario</string>
+    <string name="hint_contrasena_login">Ingrese contraseña</string>
+    <string name="button_ingresar_login">Ingresar</string>
+    <string name="TextView_CerrarSesion_User">Cerrar sesión</string>
+    <string name="menu_option_inicio">Inicio</string>
+    <string name="menu_option_gesBoleta">Gestión boletas</string>
+    <string name="menu_option_gesAdelatoSueldo">Adelanto sueldo</string>
+    <string name="menu_option_gesVacaciones">Gestión vacaciones</string>
+    <string name="menu_option_gesAjusteCuenta">Ajuste de cuenta</string>
 </resources>

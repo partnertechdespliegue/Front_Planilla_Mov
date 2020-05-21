@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/inicio"
+            android:icon="@drawable/home"
+            android:title="@string/menu_option_inicio" />
+        <item
+            android:id="@+id/gesBoletas"
+            android:icon="@drawable/bill"
+            android:title="@string/menu_option_gesBoleta" />
+        <item
+            android:id="@+id/gesAdelantoSueldo"
+            android:icon="@drawable/money"
+            android:title="@string/menu_option_gesAdelatoSueldo" />
+        <item
+            android:id="@+id/gesVacaciones"
+            android:icon="@drawable/holiday"
+            android:title="@string/menu_option_gesVacaciones" />
+        <item
+            android:id="@+id/gesAjusteCuenta"
+            android:icon="@drawable/gear"
+            android:title="@string/menu_option_gesAjusteCuenta" />
+    </group>
+</menu>
