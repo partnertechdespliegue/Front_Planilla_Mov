@@ -26,7 +26,7 @@
             android:layout_width="0dp"
             android:layout_height="400dp"
             android:layout_marginTop="32dp"
-            app:fillColor="@color/colorAccent"
+            app:fillColor="@color/cuatro"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +34,6 @@
             app:pageColor="#FFFFFF"
             app:radius="5dp"
             app:slideInterval="3000"
-            app:strokeColor="@color/colorAccent"
             app:strokeWidth="1dp">
 
         </com.synnapps.carouselview.CarouselView>

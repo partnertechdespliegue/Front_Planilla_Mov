@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="EditTextStyle">
+        <item name="android:backgroundTint">@color/cinco</item>
+        <item name="android:textCursorDrawable">@color/cinco</item>
+        <item name="android:textColor">@color/seis</item>
+        <item name="android:textColorHint">@color/siete</item>
+    </style>
+
+    <style name="ButtonStyle">
+        <item name="android:backgroundTint">@color/tres</item>
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:paddingBottom">20dp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="YourStyleNameFor.NavigationDrawer" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorControlHighlight">@color/dos</item>
+    </style>
+</resources>
