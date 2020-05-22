@@ -9,6 +9,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.app.partner.plan.Common.Comunes;
@@ -27,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
 
     Button btnIngresar;
     EditText edtUsuairo, edtPassword;
+    Switch switchRecordar;
 
     IUsuario iUsuario;
     UsuarioInterface uService;
@@ -50,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
         btnIngresar = findViewById(R.id.buttonIngresarLogin);
         edtUsuairo = findViewById(R.id.editTextUsuarioLogin);
         edtPassword = findViewById(R.id.editTextContrasenaLogin);
+        switchRecordar = findViewById(R.id.switchRecordarLogin);
     }
     private void eventosViews() {
         btnIngresar.setOnClickListener(new View.OnClickListener() {

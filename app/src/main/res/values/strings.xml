@@ -7,6 +7,7 @@
     <string name="text_contrasena_login">Contraseña</string>
     <string name="hint_usuario_login">Ingrese usuario</string>
     <string name="hint_contrasena_login">Ingrese contraseña</string>
+    <string name="switch_recordar_login">Recordar</string>
     <string name="button_ingresar_login">Ingresar</string>
     <string name="TextView_CerrarSesion_User">Cerrar sesión</string>
     <string name="menu_option_inicio">Inicio</string>
