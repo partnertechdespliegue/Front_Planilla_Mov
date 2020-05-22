@@ -62,8 +62,8 @@ public class LoginActivity extends AppCompatActivity {
     }
     private void logueo(){
 
-        final String email = edtUsuairo.getText().toString();
-        final String password = edtPassword.getText().toString();
+         String email = edtUsuairo.getText().toString();
+         String password = edtPassword.getText().toString();
 
         if (!email.isEmpty() && !password.isEmpty()) {
             String base = "planillas123:planillas";

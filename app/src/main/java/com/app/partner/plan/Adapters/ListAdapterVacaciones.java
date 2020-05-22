@@ -61,8 +61,10 @@ public class ListAdapterVacaciones extends BaseAdapter {
 
         if (lsVacaciones.get(position).getEstado() == 1){
             viewHolder.ivVer.setVisibility(View.GONE);
+            viewHolder.ivSolicitar.setVisibility(View.VISIBLE);
         } else {
             viewHolder.ivSolicitar.setVisibility(View.GONE);
+            viewHolder.ivVer.setVisibility(View.VISIBLE);
         }
 
         viewHolder.ivVer.setOnClickListener(new View.OnClickListener() {
