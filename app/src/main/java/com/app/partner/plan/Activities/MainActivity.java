@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.partner.plan.Fragments.AdelantoSueldoFragment;
@@ -18,15 +19,14 @@ import com.app.partner.plan.Fragments.AjusteCuentaFragment;
 import com.app.partner.plan.Fragments.InicioFragment;
 import com.app.partner.plan.Fragments.VacacionesFragment;
 import com.app.partner.plan.Fragments.GestionBoletas;
-import com.app.partner.plan.Fragments.InicioFragment;
 import com.app.partner.plan.R;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
-    public Fragment inicio;
 
     private DrawerLayout drawerMain;
     private NavigationView navigationViewMain;
+    TextView tvCerrarSesion;
 
     Fragment inicioFragment;
 
@@ -118,6 +118,15 @@ public class MainActivity extends AppCompatActivity {
     private void obtenerViews() {
         drawerMain = findViewById(R.id.drawerMain);
         navigationViewMain = findViewById(R.id.navegationViewMain);
+        tvCerrarSesion = findViewById(R.id.textViewCerrarSesionMain);
+        tvCerrarSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent iCerrarSesion = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(iCerrarSesion);
+                finish();
+            }
+        });
     }
 
     private void setFragmentDefecto() {
@@ -145,6 +154,5 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 
 }
