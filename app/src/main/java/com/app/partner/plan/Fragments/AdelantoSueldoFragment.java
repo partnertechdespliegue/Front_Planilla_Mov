@@ -26,6 +26,7 @@ public class AdelantoSueldoFragment extends Fragment {
 
     private ListView listViewAdelantarSueldo;
     private ListAdapterAdelantoSueldo adapterAdelantoSueldo;
+
     public AdelantoSueldoFragment() {
         // Required empty public constructor
     }
@@ -48,7 +49,9 @@ public class AdelantoSueldoFragment extends Fragment {
         fabSolicitarAdelanto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Solicitar adelanto", Toast.LENGTH_SHORT).show();
+                DialogSolicitarAdelantoSueldoFragment dialog = new DialogSolicitarAdelantoSueldoFragment();
+                dialog.show(((MainActivity) getContext()).getSupportFragmentManager(), null);
+//                Toast.makeText(getContext(), "Solicitar adelanto", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -57,7 +60,8 @@ public class AdelantoSueldoFragment extends Fragment {
         adapterAdelantoSueldo = new ListAdapterAdelantoSueldo(getContext(), obtenerListString(), new ListAdapterAdelantoSueldo.OnClickListener() {
             @Override
             public void onEyeClick(String adelantoSueldo, int position) {
-                Toast.makeText(getContext(), "Ayy mi ojo", Toast.LENGTH_SHORT).show();
+                DialogVerAdelantoSueldoFragment dialog = new DialogVerAdelantoSueldoFragment();
+                dialog.show(((MainActivity) getContext()).getSupportFragmentManager(), null);
             }
         });
 
@@ -79,8 +83,8 @@ public class AdelantoSueldoFragment extends Fragment {
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
                 int lastItem = firstVisibleItem + visibleItemCount;
                 List<String> ls = obtenerListString();
-                if ( ls.size() > 0) {
-                    if (visibleItemCount == totalItemCount){
+                if (ls.size() > 0) {
+                    if (visibleItemCount == totalItemCount) {
                         fabSolicitarAdelanto.show();
                     } else {
                         if (lastItem == totalItemCount) {
@@ -96,7 +100,7 @@ public class AdelantoSueldoFragment extends Fragment {
         });
     }
 
-    private List<String> obtenerListString(){
+    private List<String> obtenerListString() {
         List<String> lsString = new ArrayList<>();
         lsString.add("Prueba 1");
         lsString.add("Prueba 2");
@@ -116,6 +120,6 @@ public class AdelantoSueldoFragment extends Fragment {
         lsString.add("Prueba 4");
         lsString.add("Prueba 5");
         lsString.add("Prueba 6");
-        return  lsString;
+        return lsString;
     }
 }

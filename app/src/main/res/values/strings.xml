@@ -16,4 +16,18 @@
     <string name="menu_option_gesVacaciones">Gestión vacaciones</string>
     <string name="menu_option_gesAjusteCuenta">Ajuste de cuenta</string>
     <string name="Text_Noticias">Noticias</string>
+    <string name="text_cuotas_ver_adelanto_sueldo">Cuotas</string>
+    <string name="button_cancelar">Cancelar</string>
+    <string name="text_periodo">Periodo</string>
+    <string name="text_estado">Estado</string>
+    <string name="text_dialog_cuotas">Cuotas</string>
+    <string name="text_dailog_mes_solocitud">Mes solicitud</string>
+    <string name="text_dialog_ano_solicitud">Año solicitud</string>
+    <string name="text_dialog_tipo_adelanto_sueldo">Tipo de adelanto</string>
+    <string name="text_dialog_monto">Monto</string>
+    <string name="text_dialog_cantidad_cuotas">Cuotas</string>
+    <string name="text_dialog_pago_mensual">Pago mensual</string>
+    <string name="text_dialog_mes_recepcion">Mes recepcion</string>
+    <string name="text_dialog_ano_recepcion">Año recepcion</string>
+    <string name="button_solicitar">Solicitar</string>
 </resources>
