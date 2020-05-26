@@ -29,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     Button btnIngresar;
     EditText edtUsuairo, edtPassword;
     Switch swRecordar;
+    Switch switchRecordar;
 
     IUsuario iUsuario;
     UsuarioInterface uService;
@@ -60,7 +61,8 @@ public class LoginActivity extends AppCompatActivity {
         btnIngresar = findViewById(R.id.buttonIngresarLogin);
         edtUsuairo = findViewById(R.id.editTextUsuarioLogin);
         edtPassword = findViewById(R.id.editTextContrasenaLogin);
-        swRecordar = findViewById(R.id.switchRecordar);
+        swRecordar = findViewById(R.id.switchRecordarLogin);
+        switchRecordar = findViewById(R.id.switchRecordarLogin);
     }
     private void eventosViews() {
         btnIngresar.setOnClickListener(new View.OnClickListener() {

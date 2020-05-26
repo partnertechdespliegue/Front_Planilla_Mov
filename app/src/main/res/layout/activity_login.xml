@@ -33,13 +33,13 @@
             style="@style/ButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
             android:text="@string/button_ingresar_login"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextContrasenaLogin" />
+            app:layout_constraintTop_toBottomOf="@+id/switchRecordarLogin" />
 
         <EditText
             android:id="@+id/editTextUsuarioLogin"
@@ -67,20 +67,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewContrasenaLogin" />
 
-        <Switch
-            android:id="@+id/switchRecordar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:checked="true"
-            android:text="@string/SwRecordar"
-            android:textColor="#AAAAAA"
-            android:theme="@style/SwitchStyle"
-            app:layout_constraintBottom_toTopOf="@+id/buttonIngresarLogin"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextContrasenaLogin"
-            app:layout_constraintVertical_bias="0.961" />
-
         <TextView
             android:id="@+id/textViewUsuarioLogin"
             android:layout_width="wrap_content"
@@ -101,6 +87,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextUsuarioLogin" />
 
+        <Switch
+            android:id="@+id/switchRecordarLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:checked="true"
+            android:text="@string/switch_recordar_login"
+            android:textColor="#AAAAAA"
+            android:theme="@style/SwitchStyle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextContrasenaLogin" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

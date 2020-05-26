@@ -89,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.gesBoletas:
                         fragment = new GestionBoletas();
                         fragmentTransaction = true;
-                        Toast.makeText(MainActivity.this, "No implementado", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.gesAdelantoSueldo:
                         fragment = new AdelantoSueldoFragment();
