@@ -9,6 +9,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.app.partner.plan.Common.Comunes;
@@ -27,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
 
     Button btnIngresar;
     EditText edtUsuairo, edtPassword;
+    Switch swRecordar;
 
     IUsuario iUsuario;
     UsuarioInterface uService;
@@ -35,9 +37,17 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         retrofitInit();
         obtenerViews();
         eventosViews();
+
+        if (SharedPreferencesManager.getPrefBoolean(Comunes.KEY_REMEMBER)){
+            String email = SharedPreferencesManager.getPrefString(Comunes.KEY_EMAIL);
+            String password = SharedPreferencesManager.getPrefString(Comunes.KEY_PASSWORD);
+            edtUsuairo.setText(email);
+            edtPassword.setText(password);
+        }
 
     }
 
@@ -50,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
         btnIngresar = findViewById(R.id.buttonIngresarLogin);
         edtUsuairo = findViewById(R.id.editTextUsuarioLogin);
         edtPassword = findViewById(R.id.editTextContrasenaLogin);
+        swRecordar = findViewById(R.id.switchRecordar);
     }
     private void eventosViews() {
         btnIngresar.setOnClickListener(new View.OnClickListener() {
@@ -74,10 +85,23 @@ public class LoginActivity extends AppCompatActivity {
                 public void onResponse(Call<ResponseUsuario> call, Response<ResponseUsuario> response) {
                     System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"+response);
                     if (response.isSuccessful()) {
+                        ResponseUsuario user = response.body();
+                        SharedPreferencesManager.setPreferences(Comunes.KEY_TOKEN, response.body().getAccess_token());
+                        SharedPreferencesManager.setPreferences(Comunes.KEY_EMAIL, email);
+                        SharedPreferencesManager.setPreferences(Comunes.KEY_PASSWORD, password);
+                        SharedPreferencesManager.setPreferences(Comunes.KEY_NAME, user.getNombre());
+                        SharedPreferencesManager.setPreferences(Comunes.KEY_ID_PERFIL, user.getId_perfil());
+                        SharedPreferencesManager.setPreferences(Comunes.KEY_REMEMBER, swRecordar.isChecked());
+
+                        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"+response.body().getAccess_token());
                         Intent intentIniciar = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intentIniciar);
                         finish();
-                    } else {
+                    }
+
+
+
+                    else {
                         Toast tastyToast = TastyToast.makeText(LoginActivity.this, "Verifique su email o contraseña", TastyToast.LENGTH_SHORT, TastyToast.INFO);
                         tastyToast.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 150);
                         tastyToast.show();

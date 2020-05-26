@@ -12,6 +12,7 @@ public class SharedPreferencesManager {
     }
 
     private static SharedPreferences getSharedPreferences(){
+
         return MyApp.getContext().getSharedPreferences(APP_SETTINGS_FILE, Context.MODE_PRIVATE);
     }
 
@@ -29,6 +30,8 @@ public class SharedPreferencesManager {
         SharedPreferences.Editor editor = getSharedPreferences().edit();
         editor.putBoolean(key, value).commit();
     }
+
+
 
     public static String getPrefString(String key){
         return getSharedPreferences().getString(key , null);

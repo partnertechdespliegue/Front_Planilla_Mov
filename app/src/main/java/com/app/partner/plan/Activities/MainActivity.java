@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         if (savedInstanceState == null) {
@@ -79,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 boolean fragmentTransaction = false;
                 Fragment fragment = null;
-
+                fragment.getFragmentManager();
                 switch (item.getItemId()){
                     case R.id.inicio:
                         fragment = inicioFragment;

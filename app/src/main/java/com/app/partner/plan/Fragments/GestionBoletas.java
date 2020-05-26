@@ -11,15 +11,27 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 
+import com.app.partner.plan.Model.Request.Trabajador;
+import com.app.partner.plan.Model.Response.ResponseBoletas;
 import com.app.partner.plan.R;
+import com.app.partner.plan.Services.Service.BoletaInterface;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class GestionBoletas extends Fragment {
 
     ListView lv;
     SearchView searchView;
     ArrayAdapter<String> adapter;
+
+    public List<Trabajador> listTrabajador;
+    private BoletaInterface boletaInterface;
+    private Trabajador trabajador;
 
     String[] data = {"fecha","fecha","fecha","fecha","fecha","fecha","fecha","fecha","fecha"};
 
@@ -30,20 +42,7 @@ public class GestionBoletas extends Fragment {
     private String mParam1;
     private String mParam2;
 
-//CLASE PRUEBA
-    /*
-    public class Boletas{
-        String nombre;
-        int img;
-
-         public Boletas(String nombre, Integer img) {
-            this.nombre = nombre;
-            this.img = img;
-        }
-    }*/
-
     public GestionBoletas() {
-        // Required empty public constructor
     }
 
     public static GestionBoletas newInstance(String param1, String param2) {
@@ -72,17 +71,35 @@ public class GestionBoletas extends Fragment {
         adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, data);
         lv.setAdapter(adapter);
 
-
-      /*  ArrayList<Boletas> boletas = new ArrayList<>();
-        boletas.add(new Boletas("fecha",R.drawable.cloud));
-        boletas.add(new Boletas("fecha",R.drawable.cloud));
-        boletas.add(new Boletas("fecha",R.drawable.cloud));
-        boletas.add(new Boletas("fecha",R.drawable.cloud));
-        boletas.add(new Boletas("fecha",R.drawable.cloud));
-
-*/
-
+        listarBoletas();
 
         return view;
     }
+
+
+
+
+    public void listarBoletas() {
+
+        listTrabajador = new ArrayList<>();
+        Call<ResponseBoletas> call = boletaInterface.listarBoletas(trabajador);
+        ResponseBoletas p=new ResponseBoletas();
+        call.enqueue(new Callback<ResponseBoletas>() {
+            @Override
+            public void onResponse(Call<ResponseBoletas> call, Response<ResponseBoletas> response) {
+                System.out.println("RESPONSE: "+response);
+                if (response.isSuccessful()) {
+                        System.out.println("holissssssss");
+                }
+            }
+            @Override
+            public void onFailure(Call<ResponseBoletas> call, Throwable t) {
+
+            }
+        });
+    }
+
+
+
+
 }
