@@ -1,6 +1,5 @@
 package com.app.partner.plan.Services.Service;
 
-import com.app.partner.plan.Model.Request.PlanillaHistorico;
 import com.app.partner.plan.Model.Request.Trabajador;
 import com.app.partner.plan.Model.Response.ResponseBoletas;
 

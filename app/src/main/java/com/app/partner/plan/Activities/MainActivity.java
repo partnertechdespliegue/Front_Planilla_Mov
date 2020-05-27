@@ -22,7 +22,7 @@ import com.app.partner.plan.Fragments.GestionBoletas;
 import com.app.partner.plan.R;
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
 
     private DrawerLayout drawerMain;
     private NavigationView navigationViewMain;

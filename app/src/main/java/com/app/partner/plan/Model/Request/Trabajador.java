@@ -4,6 +4,24 @@ import java.sql.Timestamp;
 
 public class Trabajador {
 
+    private Contrato contrato;
+
+    public Trabajador() {
+    }
+
+    public Trabajador(Contrato contrato) {
+        this.contrato = contrato;
+    }
+
+    public Contrato getContrato() {
+        return contrato;
+    }
+
+    public void setContrato(Contrato contrato) {
+        this.contrato = contrato;
+    }
+
+    /*
     public	int idTrabajador;
     public String nombres;
     public String apePater;
@@ -239,5 +257,5 @@ public class Trabajador {
 
     public void setEstado(boolean estado) {
         this.estado = estado;
-    }
+    }*/
 }

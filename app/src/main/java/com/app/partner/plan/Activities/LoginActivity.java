@@ -61,8 +61,8 @@ public class LoginActivity extends AppCompatActivity {
         btnIngresar = findViewById(R.id.buttonIngresarLogin);
         edtUsuairo = findViewById(R.id.editTextUsuarioLogin);
         edtPassword = findViewById(R.id.editTextContrasenaLogin);
-        swRecordar = findViewById(R.id.switchRecordarLogin);
-        switchRecordar = findViewById(R.id.switchRecordarLogin);
+        swRecordar = findViewById(R.id.switchRecordar);
+        switchRecordar = findViewById(R.id.switchRecordar);
     }
     private void eventosViews() {
         btnIngresar.setOnClickListener(new View.OnClickListener() {
@@ -85,7 +85,6 @@ public class LoginActivity extends AppCompatActivity {
             call.enqueue(new Callback<ResponseUsuario>() {
                 @Override
                 public void onResponse(Call<ResponseUsuario> call, Response<ResponseUsuario> response) {
-                    System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"+response);
                     if (response.isSuccessful()) {
                         ResponseUsuario user = response.body();
                         SharedPreferencesManager.setPreferences(Comunes.KEY_TOKEN, response.body().getAccess_token());
@@ -94,15 +93,10 @@ public class LoginActivity extends AppCompatActivity {
                         SharedPreferencesManager.setPreferences(Comunes.KEY_NAME, user.getNombre());
                         SharedPreferencesManager.setPreferences(Comunes.KEY_ID_PERFIL, user.getId_perfil());
                         SharedPreferencesManager.setPreferences(Comunes.KEY_REMEMBER, swRecordar.isChecked());
-
-                        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"+response.body().getAccess_token());
                         Intent intentIniciar = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intentIniciar);
                         finish();
                     }
-
-
-
                     else {
                         Toast tastyToast = TastyToast.makeText(LoginActivity.this, "Verifique su email o contraseña", TastyToast.LENGTH_SHORT, TastyToast.INFO);
                         tastyToast.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 150);
