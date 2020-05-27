@@ -80,7 +80,6 @@ public class MainActivity extends AppCompatActivity  {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 boolean fragmentTransaction = false;
                 Fragment fragment = null;
-                fragment.getFragmentManager();
                 switch (item.getItemId()){
                     case R.id.inicio:
                         fragment = inicioFragment;
