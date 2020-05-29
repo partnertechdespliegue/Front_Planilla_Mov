@@ -2,8 +2,8 @@
 <resources>
 
     <style name="EditTextStyle">
-        <item name="android:backgroundTint">@color/cinco</item>
-        <item name="android:textCursorDrawable">@color/cinco</item>
+        <item name="android:backgroundTint">@color/tres</item>
+        <item name="android:textCursorDrawable">@color/tres</item>
         <item name="android:textColor">@color/seis</item>
         <item name="android:textColorHint">@color/siete</item>
     </style>

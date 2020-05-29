@@ -42,22 +42,20 @@ public class ListAdapterAdelantoSueldo extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
-
         if (convertView == null) {
             viewHolder = new ViewHolder();
             convertView = LayoutInflater.from(this.context).inflate(R.layout.list_adelanto_sueldo, null);
-
             viewHolder.tvPeriodo = convertView.findViewById(R.id.textViewPeriodoAdelantoSueldo);
             viewHolder.tvEstado = convertView.findViewById(R.id.textViewEstadoAdelantoSueldo);
             viewHolder.ivVer = convertView.findViewById(R.id.imageViewVerAdelantoSueldo);
-
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-
         viewHolder.tvPeriodo.setText(lsAdelantosSueldo.get(position));
         viewHolder.tvEstado.setText(lsAdelantosSueldo.get(position));
+      //  viewHolder.diaFerdo.setText(lsplanilla.get(position));
+
 
         viewHolder.ivVer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +63,6 @@ public class ListAdapterAdelantoSueldo extends BaseAdapter {
                 onClickListener.onEyeClick(lsAdelantosSueldo.get(position), position);
             }
         });
-
         return convertView;
     }
 

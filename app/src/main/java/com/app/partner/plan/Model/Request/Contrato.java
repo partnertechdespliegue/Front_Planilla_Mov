@@ -3,8 +3,25 @@ package com.app.partner.plan.Model.Request;
 import java.sql.Timestamp;
 
 public class Contrato {
+
     public  int idContrato;
-    public  int regAlterAcuAtp;
+
+    public Contrato() {
+    }
+
+    public Contrato(int idContrato) {
+        this.idContrato = idContrato;
+    }
+
+    public int getIdContrato() {
+        return idContrato;
+    }
+
+    public void setIdContrato(int idContrato) {
+        this.idContrato = idContrato;
+    }
+
+    /*public  int regAlterAcuAtp;
     public  int discap;
     public  int jorMax;
     public  int horNoc;
@@ -24,5 +41,5 @@ public class Contrato {
     public int quintaExo;
     public String cuentaCTS;
     public int tipoComprob;
-    public String accion;
+    public String accion;*/
 }

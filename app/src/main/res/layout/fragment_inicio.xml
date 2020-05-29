@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragments.InicioFragment">
+    tools:context=".Fragments.InicioFragment"
+    android:background="#f5f5f5">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,27 +17,56 @@
             android:layout_height="40dp"
             android:layout_marginTop="32dp"
             android:text="@string/Text_Noticias"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:textColor="@color/cuatro"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.154"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.synnapps.carouselview.CarouselView
-            android:id="@+id/carouselDescubreOfertas"
-            android:layout_width="0dp"
-            android:layout_height="400dp"
-            android:layout_marginTop="32dp"
-            app:fillColor="@color/cuatro"
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
+            android:outlineAmbientShadowColor="@color/cuatro"
             app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:pageColor="#FFFFFF"
-            app:radius="5dp"
-            app:slideInterval="3000"
-            app:strokeWidth="1dp">
+            app:cardElevation="8dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <com.synnapps.carouselview.CarouselView
+                    android:id="@+id/carouselDescubreOfertas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="400dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    app:fillColor="#FFFFFFFF"
+                    app:pageColor="#00000000"
+                    app:radius="4dp"
+                    app:slideInterval="3000"
+                    app:strokeColor="#FF777777"
+                    app:strokeWidth="1dp"></com.synnapps.carouselview.CarouselView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:textDirection="anyRtl"
+                    android:text="Lorem ipsum dolor sit amet, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+                    app:layout_constraintTop_toBottomOf="@+id/carouselDescubreOfertas" />
+            </LinearLayout>
 
-        </com.synnapps.carouselview.CarouselView>
+        </androidx.cardview.widget.CardView>
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

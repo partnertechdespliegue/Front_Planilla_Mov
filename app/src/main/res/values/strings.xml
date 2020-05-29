@@ -31,5 +31,7 @@
     <string name="text_dialog_mes_recepcion">Mes recepcion</string>
     <string name="text_dialog_ano_recepcion">Año recepcion</string>
     <string name="button_solicitar">Solicitar</string>
+    <string name="usuario_log">"   Ingrese usuario"</string>
+    <string name="contrasena_login">"   Ingrese contraseña"</string>
     >>>>>>> 65402cc97e95e5aeab52ff9866115f20970e3890
 </resources>

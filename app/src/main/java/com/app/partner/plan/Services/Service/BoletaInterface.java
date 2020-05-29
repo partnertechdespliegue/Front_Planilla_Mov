@@ -9,7 +9,7 @@ import retrofit2.http.POST;
 
 public interface BoletaInterface {
 
-    @POST("/listarBoletas")
+    @POST("api/planilla/listarBoletas")
     Call<ResponseBoletas> listarBoletas(@Body Trabajador trabajador);
 
 }

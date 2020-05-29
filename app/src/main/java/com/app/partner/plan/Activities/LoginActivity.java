@@ -86,6 +86,7 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<ResponseUsuario> call, Response<ResponseUsuario> response) {
                     if (response.isSuccessful()) {
+
                         ResponseUsuario user = response.body();
                         SharedPreferencesManager.setPreferences(Comunes.KEY_TOKEN, response.body().getAccess_token());
                         SharedPreferencesManager.setPreferences(Comunes.KEY_EMAIL, email);
