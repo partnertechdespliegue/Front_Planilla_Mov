@@ -150,5 +150,9 @@ public class fragmentDialogAdelantoVacaciones extends DialogFragment  {
         return inflater.inflate(R.layout.fragment_dialog_adelanto_vacaciones, container, false);
     }
 
+    public static interface FragmentVacacionesListener {
+      //  void enviarVacacion(List<TrabajadorModel> listTrabajador);
+    }
+
 
 }

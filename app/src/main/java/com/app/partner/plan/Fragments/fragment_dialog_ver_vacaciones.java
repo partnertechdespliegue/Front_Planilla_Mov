@@ -28,7 +28,7 @@ import java.util.Calendar;
 public class fragment_dialog_ver_vacaciones extends DialogFragment {
 
     Activity activity;
-    Button btnCancelar, btnSolicitar;
+    Button btnCancelar;
     Calendar c;
     ImageButton button1, button2;
     DatePickerDialog picker;
@@ -68,7 +68,7 @@ public class fragment_dialog_ver_vacaciones extends DialogFragment {
 
 
     private void obtenerViews(View view) {
-        btnCancelar = view.findViewById(R.id.buttonCancelarSoliAdelantoVacaciones);
+        btnCancelar = view.findViewById(R.id.buttonCSoliAdelantoVacaciones);
         editTextFI = view.findViewById(R.id.editTextFI);
         editTextFIn = view.findViewById(R.id.editTextFIn);
         button1 = view.findViewById(R.id.button1);

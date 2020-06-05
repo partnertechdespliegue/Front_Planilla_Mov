@@ -122,7 +122,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/buttonSolicitarSoliAdelantoVacaciones"
+            android:id="@+id/buttonCSoliAdelantoVacaciones"
             android:layout_width="390dp"
             android:layout_height="53dp"
             android:layout_weight="1"

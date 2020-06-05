@@ -61,7 +61,7 @@ public class VacacionesFragment extends Fragment implements View.OnClickListener
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_vacaciones, container, false);
-        View v = inflater.inflate(R.layout.fragment_dialog_ver_vacaciones, container, false);
+        //View v = inflater.inflate(R.layout.fragment_dialog_ver_vacaciones, container, false);
 
         obtenerViews(view);
         retrofitInit();
@@ -116,13 +116,9 @@ public class VacacionesFragment extends Fragment implements View.OnClickListener
     }
 
     private void accionFabVerVacacion() {
-        verVacacion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 fragment_dialog_ver_vacaciones dialog = new fragment_dialog_ver_vacaciones();
                 dialog.show(((MainActivity) getContext()).getSupportFragmentManager(), null);
-            }
-        });
+
     }
 
 
@@ -155,15 +151,13 @@ public class VacacionesFragment extends Fragment implements View.OnClickListener
         listAdapterVacaciones = new ListAdapterVacaciones(getContext(), listvacaciones, new ListAdapterVacaciones.OnClickListener() {
             @Override
             public void onEyeClick(Vacaciones vacaciones, int position) {
-                accionFabSolicitarVacacion() ;
-                Toast.makeText(getContext(), "ojito", Toast.LENGTH_SHORT).show();
                 accionFabVerVacacion();
-                //njjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjk
             }
 
             @Override
             public void onAirPlaneClick(Vacaciones vacaciones, int position) {
-                Toast.makeText(getContext(), "Vuela vuela", Toast.LENGTH_SHORT).show();
+              //  accionFabSolicitarVacacion() ;
+                // Toast.makeText(getContext(), "Vuela vuela", Toast.LENGTH_SHORT).show();
             }
         });
         listViewVacacion.setAdapter(listAdapterVacaciones);
