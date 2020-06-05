@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.app.partner.plan.Activities.MainActivity;
 import com.app.partner.plan.Adapters.ListAdapterBoletas;
@@ -38,18 +39,13 @@ import retrofit2.Response;
 
 public class GestionBoletas extends Fragment implements View.OnClickListener{
 
-    ArrayAdapter<String> adapter;
-
     public List<Trabajador> listTrabajador;
     public List<PlanillaHistorico> listPlanillaH;
-    private Trabajador trabajador;
 
     private IBoletas iBoletas;
     private BoletaInterface boletaInterface;
 
     FragmentBoletasListener listener;
-
-    private RecyclerView.LayoutManager layoutManagerBoletas;
 
     private ListView listViewBoletas;
     private ListAdapterBoletas adapterBoletas;
@@ -75,10 +71,9 @@ public class GestionBoletas extends Fragment implements View.OnClickListener{
         View view = inflater.inflate(R.layout.fragment_gestion_boletas, container, false);
 
         obtenerViews(view);
-        //crearListView();
         retrofitInit();
         listarBoletas();
-
+        crearListView();
         return view;
     }
 
@@ -88,28 +83,19 @@ public class GestionBoletas extends Fragment implements View.OnClickListener{
     }
 
 
-
     public void listarBoletas() {
         listPlanillaH = new ArrayList<>();
         Contrato n = new Contrato(1);
         Trabajador t = new Trabajador(n);
-
         Call<ResponseBoletas> call = boletaInterface.listarBoletas(t);
-        ResponseBoletas p=new ResponseBoletas();
         call.enqueue(new Callback<ResponseBoletas>() {
             @Override
             public void onResponse(Call<ResponseBoletas> call, Response<ResponseBoletas> response) {
-                    System.out.println("RESPONSE: "+response);
                 if (response.isSuccessful()) {
-                    System.out.println(response.isSuccessful());
-
                     listPlanillaH = response.body().getAaData();
-                    /*for(PlanillaHistorico p : listPlanillaH ){
-
-                    }*/
-                    adapterBoletas = new ListAdapterBoletas(getContext(), listPlanillaH);
+                    adapterBoletas = new ListAdapterBoletas(getContext(),listPlanillaH);
                     listViewBoletas.setAdapter(adapterBoletas);
-
+                    crearListView();
                 }
             }
             @Override
@@ -119,10 +105,25 @@ public class GestionBoletas extends Fragment implements View.OnClickListener{
         });
     }
 
+
+
+    private void crearListView( ) {
+        System.out.println(listPlanillaH.size());
+        adapterBoletas = new ListAdapterBoletas(getContext(), listPlanillaH, new ListAdapterBoletas.OnClickListener() {
+            @Override
+            public void onDownland(PlanillaHistorico planillaHistorico, int position) {
+                Toast.makeText(getContext(), "downland", Toast.LENGTH_SHORT).show();
+            }
+        });
+        listViewBoletas.setAdapter(adapterBoletas);
+    }
+
+
     private void retrofitInit() {
         iBoletas = IBoletas.getInstance();
         boletaInterface = iBoletas.getTiendaService();
     }
+
 
     @Override
     public void onClick(View view) {
@@ -132,31 +133,8 @@ public class GestionBoletas extends Fragment implements View.OnClickListener{
 
     public static interface FragmentBoletasListener {
         void enviarBoletas(List<Trabajador> listTrabajador);
-        //List<Tienda_Producto> getProdProductos();
-
     }
 
 
-    private List<String> obtenerListString() {
-        List<String> lsString = new ArrayList<>();
-        lsString.add("Prueba 1");
-        lsString.add("Prueba 2");
-        lsString.add("Prueba 3");
-        lsString.add("Prueba 4");
-        lsString.add("Prueba 5");
-        lsString.add("Prueba 6");
-        lsString.add("Prueba 1");
-        lsString.add("Prueba 2");
-        lsString.add("Prueba 3");
-        lsString.add("Prueba 4");
-        lsString.add("Prueba 5");
-        lsString.add("Prueba 6");
-        lsString.add("Prueba 1");
-        lsString.add("Prueba 2");
-        lsString.add("Prueba 3");
-        lsString.add("Prueba 4");
-        lsString.add("Prueba 5");
-        lsString.add("Prueba 6");
-        return lsString;
-    }
+
 }

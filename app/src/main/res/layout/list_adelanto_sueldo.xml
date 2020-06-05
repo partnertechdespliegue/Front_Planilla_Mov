@@ -17,41 +17,42 @@
         app:cardElevation="4dp">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="359dp"
-            android:layout_height="100dp">
+            android:layout_height="90dp">
+
             <TextView
                 android:id="@+id/textViewPeriodoAdelantoSueldo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="35dp"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="25dp"
                 android:layout_marginBottom="25dp"
-                android:textColor="#000"
-                android:textSize="20dp"
                 android:text="TextView"
+                android:textColor="@color/black"
+                android:textSize="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.538" />
 
             <TextView
                 android:id="@+id/textViewEstadoAdelantoSueldo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="52dp"
+                android:layout_marginStart="176dp"
+                android:layout_marginTop="40dp"
                 android:text="TextView"
-                app:layout_constraintBottom_toBottomOf="@+id/textViewPeriodoAdelantoSueldo"
-                app:layout_constraintStart_toEndOf="@+id/textViewPeriodoAdelantoSueldo"
-                app:layout_constraintTop_toTopOf="@+id/textViewPeriodoAdelantoSueldo" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/imageViewVerAdelantoSueldo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="32dp"
-                app:layout_constraintBottom_toBottomOf="@+id/textViewEstadoAdelantoSueldo"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="36dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textViewEstadoAdelantoSueldo"
-                app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@drawable/eye" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ojo" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragments.fragmentDialogAdelantoVacaciones">
+
+    <TextView
+        android:id="@+id/textViewCuotasDialogAdeSueldo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Solicitar Vacaciones"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:textColor="@color/cuatro"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCuotasDialogAdeSueldo">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.55"
+            android:textColor="@color/black"
+            android:text="Fecha Inicio" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.45"
+            android:textColor="@color/black"
+            android:text="Fecha Fin" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linearLayoutCompat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp">
+
+            <EditText
+                android:id="@+id/editTextFI"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:shadowColor="@color/cuatro"
+                android:textColorHint="@color/tres"
+                />
+
+            <ImageButton
+                android:id="@+id/button1"
+                android:layout_width="40dp"
+                android:layout_height="45dp"
+                android:src="@drawable/date"
+                android:layout_marginLeft="95dp"
+                android:background="@color/tres" />
+        </RelativeLayout>
+
+
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:id="@+id/editTextFIn"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:shadowColor="@color/cuatro"
+        android:textColorHint="@color/tres" />
+
+    <ImageButton
+        android:id="@+id/button2"
+        android:layout_width="40dp"
+        android:layout_height="45dp"
+        android:src="@drawable/date"
+        android:layout_marginLeft="95dp"
+        android:background="@color/tres" />
+</RelativeLayout>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat"
+        app:layout_constraintVertical_bias="0.156">
+
+        <Button
+            android:id="@+id/buttonCancelarSoliAdelantoVacaciones"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/tres"
+            android:text="@string/button_cancelar"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/buttonSolicitarSoliAdelantoVacaciones"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/tres"
+            android:text="@string/button_solicitar"
+            android:textColor="@color/white" />
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

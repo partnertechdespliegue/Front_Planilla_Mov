@@ -5,9 +5,9 @@ import java.sql.Date;
 public class Vacaciones {
     private int  idVacacion;
 
-    private Date fechaIni;
+    private String fechaIni;
 
-    private Date fechaFin;
+    private String fechaFin;
 
     private int estado;
 
@@ -20,7 +20,7 @@ public class Vacaciones {
     public Vacaciones() {
     }
 
-    public Vacaciones(int idVacacion, Date fechaIni, Date fechaFin, int estado, int diasVendidos, int diasTomados, Trabajador trabajador) {
+    public Vacaciones(int idVacacion, String fechaIni, String fechaFin, int estado, int diasVendidos, int diasTomados, Trabajador trabajador) {
         this.idVacacion = idVacacion;
         this.fechaIni = fechaIni;
         this.fechaFin = fechaFin;
@@ -38,19 +38,19 @@ public class Vacaciones {
         this.idVacacion = idVacacion;
     }
 
-    public Date getFechaIni() {
+    public String getFechaIni() {
         return fechaIni;
     }
 
-    public void setFechaIni(Date fechaIni) {
+    public void setFechaIni(String fechaIni) {
         this.fechaIni = fechaIni;
     }
 
-    public Date getFechaFin() {
+    public String getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(Date fechaFin) {
+    public void setFechaFin(String fechaFin) {
         this.fechaFin = fechaFin;
     }
 

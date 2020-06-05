@@ -25,6 +25,8 @@ import java.util.List;
 
 public class DialogVerAdelantoSueldoFragment extends DialogFragment {
 
+    private int layoutStyle;
+
     Activity activity;
 
     ListView lvVerAdeSueldo;
@@ -32,7 +34,10 @@ public class DialogVerAdelantoSueldoFragment extends DialogFragment {
     Button btnCancelar;
 
     public DialogVerAdelantoSueldoFragment() {
-        // Required empty public constructor
+    }
+
+    public DialogVerAdelantoSueldoFragment(int layoutStyle){
+        this.layoutStyle = layoutStyle;
     }
 
     @Override
@@ -46,7 +51,6 @@ public class DialogVerAdelantoSueldoFragment extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-
         return crearDialog();
     }
 
@@ -55,15 +59,9 @@ public class DialogVerAdelantoSueldoFragment extends DialogFragment {
         View view = getActivity().getLayoutInflater().inflate(R.layout.fragment_dialog_ver_adelanto_sueldo, null);
         builder.setView(view);
         obtenerViews(view);
-        crearListView();
-
         return builder.create();
     }
 
-    private void crearListView() {
-        adapterCuota = new ListAdapterCuotaAdelantoSueldo(getContext(), obtenerCuotas());
-        lvVerAdeSueldo.setAdapter(adapterCuota);
-    }
 
     private void obtenerViews(View view) {
         lvVerAdeSueldo = view.findViewById(R.id.listViewVerAdelantoSueldo);
@@ -76,18 +74,5 @@ public class DialogVerAdelantoSueldoFragment extends DialogFragment {
         });
     }
 
-    private List<String> obtenerCuotas() {
-        List<String> lsString = new ArrayList<>();
-        lsString.add("Pruba A");
-        lsString.add("Pruba B");
-        lsString.add("Pruba C");
-        lsString.add("Pruba D");
-        lsString.add("Pruba E");
-        lsString.add("Pruba A");
-        lsString.add("Pruba B");
-        lsString.add("Pruba C");
-        lsString.add("Pruba D");
-        lsString.add("Pruba E");
-        return lsString;
-    }
+
 }

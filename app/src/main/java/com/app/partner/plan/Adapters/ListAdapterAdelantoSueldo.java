@@ -1,6 +1,7 @@
 package com.app.partner.plan.Adapters;
 
 import android.content.Context;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,20 +9,31 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
+
+import com.app.partner.plan.Model.Request.AdelantoSueldo;
 import com.app.partner.plan.R;
 
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ListAdapterAdelantoSueldo extends BaseAdapter {
 
     private Context context;
-    private List<String> lsAdelantosSueldo;
+    private List<AdelantoSueldo> lsAdelantosSueldo = new ArrayList<>();
+    private ImageView imageViewVerAdelantoSueldo;
     private OnClickListener onClickListener;
 
-    public ListAdapterAdelantoSueldo(Context context, List<String> lsAdelantosSueldo, OnClickListener listener) {
+    public ListAdapterAdelantoSueldo(Context context, List<AdelantoSueldo> lsAdelantosSueldo, OnClickListener listener) {
         this.context = context;
         this.lsAdelantosSueldo = lsAdelantosSueldo;
         this.onClickListener = listener;
+    }
+
+    public ListAdapterAdelantoSueldo(Context context, List<AdelantoSueldo> adelantoSueldos) {
     }
 
     @Override
@@ -39,8 +51,9 @@ public class ListAdapterAdelantoSueldo extends BaseAdapter {
         return position;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
         if (convertView == null) {
             viewHolder = new ViewHolder();
@@ -52,9 +65,13 @@ public class ListAdapterAdelantoSueldo extends BaseAdapter {
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        viewHolder.tvPeriodo.setText(lsAdelantosSueldo.get(position));
-        viewHolder.tvEstado.setText(lsAdelantosSueldo.get(position));
-      //  viewHolder.diaFerdo.setText(lsplanilla.get(position));
+        if(lsAdelantosSueldo.get(position).getEstado()==0){
+            viewHolder.tvPeriodo.setText("cancelado");
+            viewHolder.tvEstado.setText(lsAdelantosSueldo.get(position).getFechaSol().toString());
+        }else if(lsAdelantosSueldo.get(position).getEstado()==1){
+            viewHolder.tvPeriodo.setText("pendiente");
+            viewHolder.tvEstado.setText(lsAdelantosSueldo.get(position).getFechaSol().toString());
+        }
 
 
         viewHolder.ivVer.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +89,6 @@ public class ListAdapterAdelantoSueldo extends BaseAdapter {
     }
 
     public interface OnClickListener {
-        void onEyeClick(String adelantoSueldo, int position);
+        void onEyeClick(AdelantoSueldo adelantoSueldo, int position);
     }
 }

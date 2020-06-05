@@ -29,11 +29,10 @@ public class DialogSolicitarAdelantoSueldoFragment extends DialogFragment {
 
     Activity activity;
     EditText etCuotas;
-    Spinner spMesSolicitud, spAnoSolicitud, spMesRecepcion, spAnoRecepcion, spTipoAdelanto;
+    Spinner spMesSolicitud, spAnoSolicitud, spTipoAdelanto;
     Button btnCancelar, btnSolicitar;
 
     public DialogSolicitarAdelantoSueldoFragment() {
-        // Required empty public constructor
     }
 
     @Override
@@ -79,13 +78,6 @@ public class DialogSolicitarAdelantoSueldoFragment extends DialogFragment {
         adapterTipoAdelanto.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spTipoAdelanto.setAdapter(adapterTipoAdelanto);
 
-        ArrayAdapter<String> adapterMesRecepcion = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, obtenerMeses());
-        adapterMesRecepcion.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spMesRecepcion.setAdapter(adapterMesRecepcion);
-
-        ArrayAdapter<String> adapterAnoRecepcion = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, obtenerAños());
-        adapterAnoRecepcion.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spAnoRecepcion.setAdapter(adapterAnoRecepcion);
     }
 
     private void eventoButton() {
@@ -109,8 +101,6 @@ public class DialogSolicitarAdelantoSueldoFragment extends DialogFragment {
         btnSolicitar = view.findViewById(R.id.buttonSolicitarSoliAdelantoSueldo);
         spMesSolicitud = view.findViewById(R.id.spinnerMesSolicitarSoliAdelantoSueldo);
         spAnoSolicitud = view.findViewById(R.id.spinnerAnoSolicitarSoliAdelantoSueldo);
-        spMesRecepcion = view.findViewById(R.id.spinnerMesRecepcionSoliAdelantoSueldo);
-        spAnoRecepcion = view.findViewById(R.id.spinnerAnoRecepcionSoliAdelantoSueldo);
         spTipoAdelanto = view.findViewById(R.id.spinnerTipoSoliAdelantoSueldo);
         etCuotas = view.findViewById(R.id.editTextCuotaSoliAdelantoSueldo);
     }

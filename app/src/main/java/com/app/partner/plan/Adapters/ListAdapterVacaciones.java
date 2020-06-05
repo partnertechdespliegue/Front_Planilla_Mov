@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.app.partner.plan.Model.Vacaciones;
+import com.app.partner.plan.Model.Request.Vacaciones;
 import com.app.partner.plan.R;
 
 import java.util.List;
@@ -23,6 +23,11 @@ public class ListAdapterVacaciones extends BaseAdapter {
         this.context = context;
         this.lsVacaciones = lsVacaciones;
         this.onClickListener = listener;
+    }
+
+    public ListAdapterVacaciones(Context context, List<Vacaciones> lsVacaciones) {
+        this.context = context;
+        this.lsVacaciones = lsVacaciones;
     }
 
     @Override
@@ -41,7 +46,7 @@ public class ListAdapterVacaciones extends BaseAdapter {
     }
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
         if (convertView == null){
             viewHolder = new ViewHolder();
@@ -56,15 +61,19 @@ public class ListAdapterVacaciones extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        viewHolder.tvPeriodo.setText(lsVacaciones.get(position).getDescripcion());
-        viewHolder.tvEstado.setText(String.valueOf(lsVacaciones.get(position).getEstado()));
 
         if (lsVacaciones.get(position).getEstado() == 1){
             viewHolder.ivVer.setVisibility(View.GONE);
             viewHolder.ivSolicitar.setVisibility(View.VISIBLE);
+            viewHolder.tvPeriodo.setText(String.valueOf(lsVacaciones.get(position).getFechaIni()));
+            viewHolder.tvEstado.setText("Tomado");
+
         } else {
             viewHolder.ivSolicitar.setVisibility(View.GONE);
             viewHolder.ivVer.setVisibility(View.VISIBLE);
+            viewHolder.tvPeriodo.setText(String.valueOf(lsVacaciones.get(position).getFechaIni()));
+            viewHolder.tvEstado.setText("Libre");
+
         }
 
         viewHolder.ivVer.setOnClickListener(new View.OnClickListener() {

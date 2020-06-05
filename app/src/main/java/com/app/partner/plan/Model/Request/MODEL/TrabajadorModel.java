@@ -3,20 +3,23 @@ package com.app.partner.plan.Model.Request.MODEL;
 public class TrabajadorModel {
 
     private int idTrabajador;
-    private String nombres;
-    private String apePater;
-    private String apeMater;
+   // private String nombres;
+   // private String apePater;
+   // private String apeMater;
 
     public TrabajadorModel() {
     }
 
-    public TrabajadorModel(int idTrabajador, String nombres, String apePater, String apeMater) {
+   /* public TrabajadorModel(int idTrabajador, String nombres, String apePater, String apeMater) {
         this.idTrabajador = idTrabajador;
         this.nombres = nombres;
         this.apePater = apePater;
         this.apeMater = apeMater;
-    }
+    }*/
 
+    public TrabajadorModel(int idTrabajador) {
+        this.idTrabajador = idTrabajador;
+    }
 
     public int getIdTrabajador() {
         return idTrabajador;
@@ -25,7 +28,7 @@ public class TrabajadorModel {
     public void setIdTrabajador(int idTrabajador) {
         this.idTrabajador = idTrabajador;
     }
-
+/*
     public String getNombres() {
         return nombres;
     }
@@ -48,5 +51,5 @@ public class TrabajadorModel {
 
     public void setApeMater(String apeMater) {
         this.apeMater = apeMater;
-    }
+    }*/
 }

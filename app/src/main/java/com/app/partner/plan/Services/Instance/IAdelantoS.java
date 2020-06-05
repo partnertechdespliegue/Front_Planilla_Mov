@@ -1,20 +1,20 @@
 package com.app.partner.plan.Services.Instance;
 
 import com.app.partner.plan.Common.Comunes;
-import com.app.partner.plan.Services.Service.BoletaInterface;
+import com.app.partner.plan.Services.Service.IAdelantoSInterface;
 import com.app.partner.plan.Services.TokenInterceptor;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class IBoletas {
+public class IAdelantoS {
 
-    private static IBoletas instance = null;
-    private BoletaInterface boletaInterface;
+    private static IAdelantoS instance = null;
+    private IAdelantoSInterface iAdelantoSInterface;
     private Retrofit retrofit;
 
-    public IBoletas() {
+    public IAdelantoS() {
 
         OkHttpClient.Builder okHttpCliente = new OkHttpClient.Builder();
         okHttpCliente.addInterceptor(new TokenInterceptor());
@@ -23,18 +23,18 @@ public class IBoletas {
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpCliente.build())
                 .build();
-        boletaInterface = retrofit.create(BoletaInterface.class);
+        iAdelantoSInterface = retrofit.create(IAdelantoSInterface.class);
     }
 
-    public static IBoletas getInstance(){
+    public static IAdelantoS getInstance(){
         if (instance == null){
-            instance = new IBoletas();
+            instance = new IAdelantoS();
         }
         return instance;
     }
 
-    public BoletaInterface getTiendaService(){
-        return  boletaInterface;
+    public IAdelantoSInterface getiAdelantoSInterface(){
+        return  iAdelantoSInterface;
     }
 
 

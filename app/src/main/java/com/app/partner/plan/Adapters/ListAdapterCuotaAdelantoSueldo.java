@@ -5,8 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.app.partner.plan.Model.Request.AdelantoSueldo;
 import com.app.partner.plan.R;
 
 import java.util.List;
@@ -14,12 +16,21 @@ import java.util.List;
 public class ListAdapterCuotaAdelantoSueldo extends BaseAdapter {
 
     private Context context;
-    private List<String> lscuotas;
+    private List<AdelantoSueldo> lscuotas;
 
-    public ListAdapterCuotaAdelantoSueldo( Context context, List<String> lscuotas){
+    private ListAdapterAdelantoSueldo.OnClickListener onClickListener;
+
+    public ListAdapterCuotaAdelantoSueldo(Context context, List<AdelantoSueldo> lscuotas, ListAdapterAdelantoSueldo.OnClickListener onClickListener) {
+        this.context = context;
+        this.lscuotas = lscuotas;
+        this.onClickListener = onClickListener;
+    }
+
+    public ListAdapterCuotaAdelantoSueldo(Context context, List<AdelantoSueldo> lscuotas) {
         this.context = context;
         this.lscuotas = lscuotas;
     }
+
     @Override
     public int getCount() {
         return lscuotas.size();
@@ -49,12 +60,25 @@ public class ListAdapterCuotaAdelantoSueldo extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        viewHolder.tvPeriodoCuota.setText(lscuotas.get(position));
-        viewHolder.tvEstadoCuota.setText(lscuotas.get(position));
+        viewHolder.tvPeriodoCuota.setText(lscuotas.get(position).getFechaSol().toString());
+        viewHolder.tvEstadoCuota.setText(lscuotas.get(position).getEstado());
+
+        viewHolder.ivVer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickListener.onEyeClick(lscuotas.get(position),position);
+            }
+        });
+
         return convertView;
     }
 
     public class ViewHolder {
         TextView tvPeriodoCuota, tvEstadoCuota;
+        ImageView ivVer;
+    }
+
+    public interface OnClickListener {
+        void onEyeClick(AdelantoSueldo adelantoSueldo, int position);
     }
 }

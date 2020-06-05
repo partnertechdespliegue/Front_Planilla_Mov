@@ -96,6 +96,8 @@ public class LoginActivity extends AppCompatActivity {
                         SharedPreferencesManager.setPreferences(Comunes.KEY_REMEMBER, swRecordar.isChecked());
                         Intent intentIniciar = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intentIniciar);
+
+                        System.out.println(SharedPreferencesManager.getPrefString(Comunes.KEY_PASSWORD));
                         finish();
                     }
                     else {

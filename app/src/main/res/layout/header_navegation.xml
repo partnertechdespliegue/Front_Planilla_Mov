@@ -3,14 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/siete">
 
 
     <ImageView
         android:id="@+id/imageViewNavegation"
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:background="@drawable/bg"
+        android:background="@drawable/back_aaz"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,8 +39,8 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:src="@drawable/rostro"
-        app:civ_border_color="#FF000000"
+        android:src="@drawable/chico"
+        app:civ_border_color="#000000"
         app:civ_border_width="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

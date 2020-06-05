@@ -1,20 +1,20 @@
 package com.app.partner.plan.Services.Instance;
 
 import com.app.partner.plan.Common.Comunes;
-import com.app.partner.plan.Services.Service.BoletaInterface;
+import com.app.partner.plan.Services.Service.VacacionesInterface;
 import com.app.partner.plan.Services.TokenInterceptor;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class IBoletas {
+public class IVacaciones {
 
-    private static IBoletas instance = null;
-    private BoletaInterface boletaInterface;
+    private static IVacaciones instance = null;
+    private VacacionesInterface vacacionesInterface;
     private Retrofit retrofit;
 
-    public IBoletas() {
+    public IVacaciones() {
 
         OkHttpClient.Builder okHttpCliente = new OkHttpClient.Builder();
         okHttpCliente.addInterceptor(new TokenInterceptor());
@@ -23,18 +23,18 @@ public class IBoletas {
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpCliente.build())
                 .build();
-        boletaInterface = retrofit.create(BoletaInterface.class);
+        vacacionesInterface = retrofit.create(VacacionesInterface.class);
     }
 
-    public static IBoletas getInstance(){
+    public static IVacaciones getInstance(){
         if (instance == null){
-            instance = new IBoletas();
+            instance = new IVacaciones();
         }
         return instance;
     }
 
-    public BoletaInterface getTiendaService(){
-        return  boletaInterface;
+    public VacacionesInterface getVacacionesInterface(){
+        return  vacacionesInterface;
     }
 
 

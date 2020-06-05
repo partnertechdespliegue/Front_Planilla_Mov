@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.app.partner.plan.Model.Request.PlanillaHistorico;
 import com.app.partner.plan.R;
@@ -50,21 +51,29 @@ public class ListAdapterBoletas extends BaseAdapter {
             viewHolder = new ViewHolder();
             convertView = LayoutInflater.from(this.context).inflate(R.layout.list_boletas, null);
             viewHolder.diaFerdo = convertView.findViewById(R.id.txtBoletas);
+            viewHolder.downland = convertView.findViewById(R.id.imageViewVerBoleta);
             convertView.setTag(viewHolder);
         }else{
             viewHolder = (ViewHolder) convertView.getTag();
         }
-
-        viewHolder.diaFerdo.setText(lsplanilla.get(position).toString());
+        viewHolder.diaFerdo.setText(lsplanilla.get(position).getPdoMes().getDescripcion());
+        viewHolder.downland.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickListener.onDownland(lsplanilla.get(position), position);
+            }
+        });
         return convertView;
     }
 
-    private static class ViewHolder {
-        private TextView diaFerdo, dos;
-       // private ImageView downland;
 
+    private static class ViewHolder {
+        private TextView diaFerdo;
+        private ImageView downland;
     }
+
+
     public interface OnClickListener {
-        void onEyeClick(String bol, int position);
+        void onDownland(PlanillaHistorico planillaHistorico, int position);
     }
 }
