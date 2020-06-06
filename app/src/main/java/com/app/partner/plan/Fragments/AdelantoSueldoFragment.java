@@ -90,8 +90,6 @@ public class AdelantoSueldoFragment extends Fragment implements View.OnClickList
 
     private void accionFabVerAdelanto() {
 
-        //Animation animation = AnimationUtils.loadAnimation(this,R.anim.mostrar);
-
         imageViewVerAdelantoSueldo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,12 +136,16 @@ public class AdelantoSueldoFragment extends Fragment implements View.OnClickList
         adapterAdelantoSueldo = new ListAdapterAdelantoSueldo(getContext(), listadelantoSueldos, new ListAdapterAdelantoSueldo.OnClickListener() {
             @Override
             public void onEyeClick(AdelantoSueldo adelantoSueldo, int position) {
-
-               // accionFabVerAdelanto();
-                Toast.makeText(getContext(), "ojo", Toast.LENGTH_SHORT).show();
+                accionFabVerAS();
             }
         });
         listViewAdelantarSueldo.setAdapter(adapterAdelantoSueldo);
+    }
+
+    private void accionFabVerAS() {
+        DialogVerAdelantoSueldoFragment dialog = new DialogVerAdelantoSueldoFragment();
+        dialog.show(((MainActivity) getContext()).getSupportFragmentManager(), null);
+
     }
 
 

@@ -63,7 +63,6 @@ public class fragment_dialog_ver_vacaciones extends DialogFragment {
 
     private void eventoViews() {
         eventoButton();
-        //MostrarFecha();
     }
 
 
