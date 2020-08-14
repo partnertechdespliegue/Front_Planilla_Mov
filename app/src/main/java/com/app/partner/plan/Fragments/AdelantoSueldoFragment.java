@@ -1,28 +1,20 @@
 package com.app.partner.plan.Fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.AbsListView;
-import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.app.partner.plan.Activities.MainActivity;
 import com.app.partner.plan.Adapters.ListAdapterAdelantoSueldo;
-import com.app.partner.plan.Adapters.ListAdapterBoletas;
-import com.app.partner.plan.Model.Request.AdelantoSueldo;
-import com.app.partner.plan.Model.Request.MODEL.TrabajadorModel;
+import com.app.partner.plan.Model.Request.MODEL.AdelantoSueldoMODEL;
+import com.app.partner.plan.Model.Request.MODEL.TrabajadorMODEL;
 import com.app.partner.plan.Model.Response.ResponseAdelantoS;
 import com.app.partner.plan.R;
 import com.app.partner.plan.Services.Instance.IAdelantoS;
@@ -42,9 +34,9 @@ public class AdelantoSueldoFragment extends Fragment implements View.OnClickList
 
     public ImageView imageViewVerAdelantoSueldo;
 
-    public List<TrabajadorModel> trabajadorModels;
+    public List<TrabajadorMODEL> trabajadorMODELS;
 
-    public List<AdelantoSueldo> listadelantoSueldos;
+    public List<AdelantoSueldoMODEL> listadelantoSueldoMODELS;
 
     private IAdelantoS iAdelantoS;
 
@@ -71,9 +63,7 @@ public class AdelantoSueldoFragment extends Fragment implements View.OnClickList
         listarAdelanto();
         crearListView();
         accionFabSolicitarAdelanto();
-
-
-//        accionFabVerAdelanto();
+//      accionFabVerAdelanto();
         return view;
     }
 
@@ -83,7 +73,6 @@ public class AdelantoSueldoFragment extends Fragment implements View.OnClickList
             public void onClick(View v) {
                 DialogSolicitarAdelantoSueldoFragment dialog = new DialogSolicitarAdelantoSueldoFragment();
                 dialog.show(((MainActivity) getContext()).getSupportFragmentManager(), null);
-                Toast.makeText(getContext(), "Solicitar adelanto", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -107,8 +96,8 @@ public class AdelantoSueldoFragment extends Fragment implements View.OnClickList
     }
 
     public void listarAdelanto() {
-        listadelantoSueldos = new ArrayList<>();
-        TrabajadorModel t = new TrabajadorModel(1);
+        listadelantoSueldoMODELS = new ArrayList<>();
+        TrabajadorMODEL t = new TrabajadorMODEL(1);
 
         Call<ResponseAdelantoS> call = iAdelantoSInterface.listarAdeSueldo(t);
 
@@ -116,9 +105,9 @@ public class AdelantoSueldoFragment extends Fragment implements View.OnClickList
             @Override
             public void onResponse(Call<ResponseAdelantoS> call, Response<ResponseAdelantoS> response) {
                 if (response.isSuccessful()) {
-                    listadelantoSueldos = response.body().getAaData();
+                    listadelantoSueldoMODELS = response.body().getAaData();
                     System.out.println("RESPONSEEEEEEEEEEEEEEEEEEEEEEEEEEEEE"+response);
-                    adapterAdelantoSueldo = new ListAdapterAdelantoSueldo(getContext(),listadelantoSueldos);
+                    adapterAdelantoSueldo = new ListAdapterAdelantoSueldo(getContext(), listadelantoSueldoMODELS);
                     listViewAdelantarSueldo.setAdapter(adapterAdelantoSueldo);
                     crearListView();
                 }
@@ -133,9 +122,9 @@ public class AdelantoSueldoFragment extends Fragment implements View.OnClickList
 
 
     private void crearListView() {
-        adapterAdelantoSueldo = new ListAdapterAdelantoSueldo(getContext(), listadelantoSueldos, new ListAdapterAdelantoSueldo.OnClickListener() {
+        adapterAdelantoSueldo = new ListAdapterAdelantoSueldo(getContext(), listadelantoSueldoMODELS, new ListAdapterAdelantoSueldo.OnClickListener() {
             @Override
-            public void onEyeClick(AdelantoSueldo adelantoSueldo, int position) {
+            public void onEyeClick(AdelantoSueldoMODEL adelantoSueldoMODEL, int position) {
                 accionFabVerAS();
             }
         });
@@ -156,11 +145,11 @@ public class AdelantoSueldoFragment extends Fragment implements View.OnClickList
 
     @Override
     public void onClick(View view) {
-        listener.enviarBoletas(trabajadorModels);
+        listener.enviarBoletas(trabajadorMODELS);
     }
 
     public static interface FragmentAdelantoListener {
-        void enviarBoletas(List<TrabajadorModel> listTrabajador);
+        void enviarBoletas(List<TrabajadorMODEL> listTrabajador);
     }
 
 

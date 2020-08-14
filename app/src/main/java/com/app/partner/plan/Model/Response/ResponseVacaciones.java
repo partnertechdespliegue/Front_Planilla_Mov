@@ -1,29 +1,29 @@
 package com.app.partner.plan.Model.Response;
 
-import com.app.partner.plan.Model.Request.Vacaciones;
+import com.app.partner.plan.Model.Request.MODEL.VacacionesMODEL;
 
 import java.util.List;
 
 public class ResponseVacaciones {
 
-    private List<Vacaciones> aaData;
+    private List<VacacionesMODEL> aaData;
     private int estado;
     private String msg;
 
     public ResponseVacaciones() {
     }
 
-    public ResponseVacaciones(List<Vacaciones> aaData, int estado, String msg) {
+    public ResponseVacaciones(List<VacacionesMODEL> aaData, int estado, String msg) {
         this.aaData = aaData;
         this.estado = estado;
         this.msg = msg;
     }
 
-    public List<Vacaciones> getAaData() {
+    public List<VacacionesMODEL> getAaData() {
         return aaData;
     }
 
-    public void setAaData(List<Vacaciones> aaData) {
+    public void setAaData(List<VacacionesMODEL> aaData) {
         this.aaData = aaData;
     }
 

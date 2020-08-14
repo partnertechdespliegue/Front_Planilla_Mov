@@ -21,5 +21,9 @@
             android:id="@+id/gesAjusteCuenta"
             android:icon="@drawable/gear"
             android:title="@string/menu_option_gesAjusteCuenta" />
+        <item
+            android:id="@+id/codigoQR"
+            android:icon="@drawable/camerin"
+            android:title="codigo QR" />
     </group>
 </menu>

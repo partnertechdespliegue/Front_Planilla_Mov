@@ -2,45 +2,30 @@ package com.app.partner.plan.Fragments;
 
 import android.content.Context;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.SearchView;
 import android.widget.Toast;
-
-import com.app.partner.plan.Activities.MainActivity;
 import com.app.partner.plan.Adapters.ListAdapterBoletas;
-import com.app.partner.plan.Model.Request.Contrato;
-import com.app.partner.plan.Model.Request.PlanillaHistorico;
-import com.app.partner.plan.Model.Request.Trabajador;
+import com.app.partner.plan.Model.Request.DTO.PlanillaHistoricoDTO;
+import com.app.partner.plan.Model.Request.DTO.TrabajadorDTO;
+import com.app.partner.plan.Model.Request.MODEL.ContratoMODEL;
 import com.app.partner.plan.Model.Response.ResponseBoletas;
 import com.app.partner.plan.R;
 import com.app.partner.plan.Services.Instance.IBoletas;
 import com.app.partner.plan.Services.Service.BoletaInterface;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class GestionBoletas extends Fragment implements View.OnClickListener{
 
-    public List<Trabajador> listTrabajador;
-    public List<PlanillaHistorico> listPlanillaH;
+    public List<TrabajadorDTO> listTrabajador;
+    public List<PlanillaHistoricoDTO> listPlanillaH;
 
     private IBoletas iBoletas;
     private BoletaInterface boletaInterface;
@@ -85,8 +70,8 @@ public class GestionBoletas extends Fragment implements View.OnClickListener{
 
     public void listarBoletas() {
         listPlanillaH = new ArrayList<>();
-        Contrato n = new Contrato(1);
-        Trabajador t = new Trabajador(n);
+        ContratoMODEL n = new ContratoMODEL(1);
+        TrabajadorDTO t = new TrabajadorDTO(n);
         Call<ResponseBoletas> call = boletaInterface.listarBoletas(t);
         call.enqueue(new Callback<ResponseBoletas>() {
             @Override
@@ -111,7 +96,7 @@ public class GestionBoletas extends Fragment implements View.OnClickListener{
         System.out.println(listPlanillaH.size());
         adapterBoletas = new ListAdapterBoletas(getContext(), listPlanillaH, new ListAdapterBoletas.OnClickListener() {
             @Override
-            public void onDownland(PlanillaHistorico planillaHistorico, int position) {
+            public void onDownland(PlanillaHistoricoDTO planillaHistorico, int position) {
                 Toast.makeText(getContext(), "downland", Toast.LENGTH_SHORT).show();
             }
         });
@@ -132,7 +117,7 @@ public class GestionBoletas extends Fragment implements View.OnClickListener{
 
 
     public static interface FragmentBoletasListener {
-        void enviarBoletas(List<Trabajador> listTrabajador);
+        void enviarBoletas(List<TrabajadorDTO> listTrabajador);
     }
 
 

@@ -10,19 +10,13 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.app.partner.plan.Activities.MainActivity;
-import com.app.partner.plan.Adapters.ListAdapterAdelantoSueldo;
 import com.app.partner.plan.Adapters.ListAdapterVacaciones;
-import com.app.partner.plan.Model.Request.Contrato;
-import com.app.partner.plan.Model.Request.MODEL.TrabajadorModel;
-import com.app.partner.plan.Model.Request.Trabajador;
-import com.app.partner.plan.Model.Request.Vacaciones;
+import com.app.partner.plan.Model.Request.MODEL.TrabajadorMODEL;
+import com.app.partner.plan.Model.Request.MODEL.VacacionesMODEL;
 import com.app.partner.plan.Model.Response.ResponseVacaciones;
 import com.app.partner.plan.R;
-import com.app.partner.plan.Services.Instance.IBoletas;
 import com.app.partner.plan.Services.Instance.IVacaciones;
 import com.app.partner.plan.Services.Service.VacacionesInterface;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -40,9 +34,9 @@ public class VacacionesFragment extends Fragment implements View.OnClickListener
 
     ImageView verVacacion;
 
-    public List<TrabajadorModel> trabajadorModels;
+    public List<TrabajadorMODEL> trabajadorMODELS;
 
-    public List<Vacaciones> listvacaciones;
+    public List<VacacionesMODEL> listvacaciones;
 
     private IVacaciones iVacaciones;
 
@@ -81,7 +75,7 @@ public class VacacionesFragment extends Fragment implements View.OnClickListener
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
                 int lastItem = firstVisibleItem + visibleItemCount;
-                List<Vacaciones> ls = listvacaciones;
+                List<VacacionesMODEL> ls = listvacaciones;
                 if ( ls.size() > 0) {
                     if (visibleItemCount == totalItemCount){
                         fabSolicitarAdelanto.show();
@@ -124,7 +118,7 @@ public class VacacionesFragment extends Fragment implements View.OnClickListener
 
     public void listarVacaciones() {
         listvacaciones = new ArrayList<>();
-        TrabajadorModel t = new TrabajadorModel(1);
+        TrabajadorMODEL t = new TrabajadorMODEL(1);
 
         Call<ResponseVacaciones> call = vacacionesInterface.listarPorTrabajador(t);
 
@@ -150,12 +144,12 @@ public class VacacionesFragment extends Fragment implements View.OnClickListener
     private void crearListView() {
         listAdapterVacaciones = new ListAdapterVacaciones(getContext(), listvacaciones, new ListAdapterVacaciones.OnClickListener() {
             @Override
-            public void onEyeClick(Vacaciones vacaciones, int position) {
+            public void onEyeClick(VacacionesMODEL vacacionesMODEL, int position) {
                 accionFabVerVacacion();
             }
 
             @Override
-            public void onAirPlaneClick(Vacaciones vacaciones, int position) {
+            public void onAirPlaneClick(VacacionesMODEL vacacionesMODEL, int position) {
               //  accionFabSolicitarVacacion() ;
                 // Toast.makeText(getContext(), "Vuela vuela", Toast.LENGTH_SHORT).show();
             }
@@ -172,11 +166,11 @@ public class VacacionesFragment extends Fragment implements View.OnClickListener
 
     @Override
     public void onClick(View view) {
-        listener.enviarVacacion(trabajadorModels);
+        listener.enviarVacacion(trabajadorMODELS);
     }
 
     public static interface FragmentVacacionesListener {
-        void enviarVacacion(List<TrabajadorModel> listTrabajador);
+        void enviarVacacion(List<TrabajadorMODEL> listTrabajador);
     }
 
 }

@@ -1,28 +1,28 @@
 package com.app.partner.plan.Model.Response;
 
-import com.app.partner.plan.Model.Request.PlanillaHistorico;
+import com.app.partner.plan.Model.Request.DTO.PlanillaHistoricoDTO;
 
 import java.util.List;
 
 public class ResponseBoletas {
-    private List<PlanillaHistorico> aaData;
+    private List<PlanillaHistoricoDTO> aaData;
     private int estado;
     private String msg;
 
     public ResponseBoletas() {
     }
 
-    public ResponseBoletas(List<PlanillaHistorico> aaData, int estado, String msg) {
+    public ResponseBoletas(List<PlanillaHistoricoDTO> aaData, int estado, String msg) {
         this.aaData = aaData;
         this.estado = estado;
         this.msg = msg;
     }
 
-    public List<PlanillaHistorico> getAaData() {
+    public List<PlanillaHistoricoDTO> getAaData() {
         return aaData;
     }
 
-    public void setAaData(List<PlanillaHistorico> aaData) {
+    public void setAaData(List<PlanillaHistoricoDTO> aaData) {
         this.aaData = aaData;
     }
 

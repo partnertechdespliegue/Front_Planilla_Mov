@@ -7,7 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.app.partner.plan.Model.Request.PlanillaHistorico;
+
+import com.app.partner.plan.Model.Request.DTO.PlanillaHistoricoDTO;
 import com.app.partner.plan.R;
 
 import java.util.List;
@@ -15,16 +16,16 @@ import java.util.List;
 public class ListAdapterBoletas extends BaseAdapter {
 
     private Context context;
-    List<PlanillaHistorico> lsplanilla;
+    List<PlanillaHistoricoDTO> lsplanilla;
     OnClickListener onClickListener;
 
-    public ListAdapterBoletas(Context context, List<PlanillaHistorico> lsplanilla, OnClickListener onClickListener) {
+    public ListAdapterBoletas(Context context, List<PlanillaHistoricoDTO> lsplanilla, OnClickListener onClickListener) {
         this.context = context;
         this.lsplanilla = lsplanilla;
         this.onClickListener = onClickListener;
     }
 
-    public ListAdapterBoletas(Context context, List<PlanillaHistorico> lsplanilla) {
+    public ListAdapterBoletas(Context context, List<PlanillaHistoricoDTO> lsplanilla) {
         this.context = context;
         this.lsplanilla = lsplanilla;
     }
@@ -56,7 +57,7 @@ public class ListAdapterBoletas extends BaseAdapter {
         }else{
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        viewHolder.diaFerdo.setText(lsplanilla.get(position).getPdoMes().getDescripcion());
+        viewHolder.diaFerdo.setText(lsplanilla.get(position).getPdoMesMODEL().getDescripcion());
         viewHolder.downland.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,6 +75,6 @@ public class ListAdapterBoletas extends BaseAdapter {
 
 
     public interface OnClickListener {
-        void onDownland(PlanillaHistorico planillaHistorico, int position);
+        void onDownland(PlanillaHistoricoDTO planillaHistorico, int position);
     }
 }

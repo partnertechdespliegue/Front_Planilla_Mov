@@ -15,7 +15,7 @@
         android:text="@string/text_dialog_cuotas"
         android:textSize="18dp"
         android:textStyle="bold"
-        android:textColor="@color/cuatro"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -224,7 +224,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/tres"
+            android:background="@drawable/buttonlogin"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
             android:text="@string/button_cancelar"
             android:textColor="@color/white" />
 
@@ -233,7 +235,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/tres"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/buttonlogin"
             android:text="@string/button_solicitar"
             android:textColor="@color/white" />
     </LinearLayout>

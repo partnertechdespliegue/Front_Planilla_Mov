@@ -2,6 +2,7 @@ package com.app.partner.plan.Fragments;
 
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -17,6 +18,7 @@ import com.synnapps.carouselview.ImageListener;
 public class InicioFragment extends Fragment {
 
     CarouselView carouselView;
+    CardView cardView;
     private int[] mImages = new int[]{R.drawable.cloud, R.drawable.cloud, R.drawable.cloud, R.drawable.cloud};
 
 
@@ -45,6 +47,8 @@ public class InicioFragment extends Fragment {
             public void setImageForPosition(int position, ImageView imageView) {
                 imageView.setImageResource(mImages[position]);
             }
+
+
         });
     }
 }

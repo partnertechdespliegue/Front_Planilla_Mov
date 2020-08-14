@@ -151,7 +151,7 @@ public class fragmentDialogAdelantoVacaciones extends DialogFragment  {
     }
 
     public static interface FragmentVacacionesListener {
-      //  void enviarVacacion(List<TrabajadorModel> listTrabajador);
+      //  void enviarVacacion(List<TrabajadorMODEL> listTrabajador);
     }
 
 

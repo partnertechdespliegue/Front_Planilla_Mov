@@ -1,8 +1,8 @@
-package com.app.partner.plan.Model.Request;
+package com.app.partner.plan.Model.Request.MODEL;
 
 import java.util.List;
 
-public class PdoMes {
+public class PdoMesMODEL {
 
     private int idPdoMes;
     private String descripcion;
@@ -10,19 +10,23 @@ public class PdoMes {
     private int diasFeriadoCalend;
     private int cantidadDias;
     private String txtDiasFeriados;
-    private List<CuotaAdelanto> cuotaAdelanto;
+    private List<CuotaAdelantoMODEL> cuotaAdelantoMODEL;
 
-    public PdoMes() {
+    public PdoMesMODEL() {
     }
 
-    public PdoMes(int idPdoMes, String descripcion, String abrev, int diasFeriadoCalend, int cantidadDias, String txtDiasFeriados, List<CuotaAdelanto> cuotaAdelanto) {
+    public PdoMesMODEL(int idPdoMes) {
+        this.idPdoMes = idPdoMes;
+    }
+
+    public PdoMesMODEL(int idPdoMes, String descripcion, String abrev, int diasFeriadoCalend, int cantidadDias, String txtDiasFeriados, List<CuotaAdelantoMODEL> cuotaAdelantoMODEL) {
         this.idPdoMes = idPdoMes;
         this.descripcion = descripcion;
         this.abrev = abrev;
         this.diasFeriadoCalend = diasFeriadoCalend;
         this.cantidadDias = cantidadDias;
         this.txtDiasFeriados = txtDiasFeriados;
-        this.cuotaAdelanto = cuotaAdelanto;
+        this.cuotaAdelantoMODEL = cuotaAdelantoMODEL;
     }
 
     public int getIdPdoMes() {
@@ -73,11 +77,11 @@ public class PdoMes {
         this.txtDiasFeriados = txtDiasFeriados;
     }
 
-    public List<CuotaAdelanto> getCuotaAdelanto() {
-        return cuotaAdelanto;
+    public List<CuotaAdelantoMODEL> getCuotaAdelantoMODEL() {
+        return cuotaAdelantoMODEL;
     }
 
-    public void setCuotaAdelanto(List<CuotaAdelanto> cuotaAdelanto) {
-        this.cuotaAdelanto = cuotaAdelanto;
+    public void setCuotaAdelantoMODEL(List<CuotaAdelantoMODEL> cuotaAdelantoMODEL) {
+        this.cuotaAdelantoMODEL = cuotaAdelantoMODEL;
     }
 }

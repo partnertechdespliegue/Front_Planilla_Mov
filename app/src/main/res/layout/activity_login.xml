@@ -4,14 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.LoginActivity">
+    tools:context=".Activities.LoginActivity"
+    android:background="#F6F9FA">
+
 
     <ImageView
         android:id="@+id/imageViewLogoLogin"
-        android:layout_width="250dp"
-        android:layout_height="200dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="56dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.125"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/cloud" />
@@ -19,23 +22,38 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Partner Tech"
-        android:textColor="@color/tres"
-        android:textSize="30dp"
+        android:text="Planillas planillas planillas planilas"
+        app:layout_constraintEnd_toEndOf="@+id/plantec"
+        app:layout_constraintHorizontal_bias="0.543"
+        app:layout_constraintStart_toStartOf="@+id/imageViewLogoLogin"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewLogoLogin">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/plantec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_light"
+        android:text="PLANTEC"
+        android:textColor="@color/black"
+        android:textSize="40dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewLogoLogin" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewLogoLogin"
+        app:layout_constraintStart_toEndOf="@+id/imageViewLogoLogin"
+        app:layout_constraintTop_toTopOf="@+id/imageViewLogoLogin"
+        app:layout_constraintVertical_bias="0.478" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
         android:layout_width="321dp"
-        android:layout_height="301dp"
+        android:layout_height="390dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewLogoLogin"
         app:layout_constraintVertical_bias="0.43">
+
 
         <Button
             android:id="@+id/buttonIngresarLogin"
@@ -43,23 +61,42 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
-            android:text="@string/button_ingresar_login"
             android:background="@drawable/buttonlogin"
+            android:fontFamily="@font/roboto"
+            android:text="@string/button_ingresar_login"
             android:textColor="#fff"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/switchRecordar"
-            app:layout_constraintVertical_bias="0.777" />
+            app:layout_constraintVertical_bias="0.164" />
+
+        <Button
+            android:id="@+id/buttonregistrar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/buttonlogin2"
+            android:fontFamily="@font/roboto"
+            android:text="Crear cuenta"
+            android:textColor="#1F618D"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonIngresarLogin"
+            app:layout_constraintVertical_bias="0.0" />
 
         <EditText
             android:id="@+id/editTextUsuarioLogin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/edit"
+            android:layout_marginTop="28dp"
             android:drawableLeft="@drawable/ic_person_blue"
             android:ems="10"
+            android:fontFamily="@font/roboto_light"
             android:hint="@string/usuario_log"
             android:inputType="textPersonName"
             android:padding="20dp"
@@ -75,9 +112,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:background="@drawable/edit"
             android:drawableLeft="@drawable/ic_lock_blue"
             android:ems="10"
+            android:fontFamily="@font/roboto_light"
             android:hint="@string/contrasena_login"
             android:inputType="textPassword"
             android:padding="20dp"
@@ -94,6 +131,7 @@
             android:layout_marginStart="216dp"
             android:layout_marginTop="40dp"
             android:checked="true"
+            android:fontFamily="@font/roboto"
             android:text="@string/SwRecordar"
             android:textColor="@color/tres"
             android:theme="@style/SwitchStyle"

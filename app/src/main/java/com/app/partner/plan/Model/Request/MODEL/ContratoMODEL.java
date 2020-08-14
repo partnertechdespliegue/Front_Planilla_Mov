@@ -1,15 +1,15 @@
-package com.app.partner.plan.Model.Request;
+package com.app.partner.plan.Model.Request.MODEL;
 
 import java.sql.Timestamp;
 
-public class Contrato {
+public class ContratoMODEL {
 
     public  int idContrato;
 
-    public Contrato() {
+    public ContratoMODEL() {
     }
 
-    public Contrato(int idContrato) {
+    public ContratoMODEL(int idContrato) {
         this.idContrato = idContrato;
     }
 

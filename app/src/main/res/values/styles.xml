@@ -4,6 +4,7 @@
         <item name="colorPrimary">@color/white</item>
         <item name="colorPrimaryDark">@color/cuatro</item>
         <item name="colorAccent">@color/tres</item>
+        <item name="android:fontFamily">@font/roboto</item>
     </style>
 
     <style name="SwitchStyle" parent="Theme.AppCompat.Light">

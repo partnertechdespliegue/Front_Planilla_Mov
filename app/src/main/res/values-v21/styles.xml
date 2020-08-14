@@ -18,6 +18,7 @@
     </style>
 
     <style name="YourStyleNameFor.NavigationDrawer" parent="ThemeOverlay.AppCompat.Light">
-        <item name="colorControlHighlight">@color/dos</item>
+        <item name="colorControlHighlight">@color/cuatro</item>
     </style>
+
 </resources>

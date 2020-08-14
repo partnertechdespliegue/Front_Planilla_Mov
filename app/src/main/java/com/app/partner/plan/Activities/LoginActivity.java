@@ -26,7 +26,7 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
-    Button btnIngresar;
+    Button btnIngresar, btnRegistrar;
     EditText edtUsuairo, edtPassword;
     Switch swRecordar;
     Switch switchRecordar;
@@ -63,6 +63,7 @@ public class LoginActivity extends AppCompatActivity {
         edtPassword = findViewById(R.id.editTextContrasenaLogin);
         swRecordar = findViewById(R.id.switchRecordar);
         switchRecordar = findViewById(R.id.switchRecordar);
+        btnRegistrar = findViewById(R.id.buttonregistrar);
     }
     private void eventosViews() {
         btnIngresar.setOnClickListener(new View.OnClickListener() {
@@ -72,7 +73,16 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        btnRegistrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent Intentregistrar = new Intent(LoginActivity.this, activity_registrar.class);
+                startActivity(Intentregistrar);
+            }
+        });
+
     }
+
     private void logueo(){
 
          String email = edtUsuairo.getText().toString();

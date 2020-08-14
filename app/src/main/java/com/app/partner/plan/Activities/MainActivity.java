@@ -20,6 +20,7 @@ import com.app.partner.plan.Fragments.InicioFragment;
 import com.app.partner.plan.Fragments.VacacionesFragment;
 import com.app.partner.plan.Fragments.GestionBoletas;
 import com.app.partner.plan.R;
+import com.app.partner.plan.codigoQR;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity  {
@@ -101,6 +102,10 @@ public class MainActivity extends AppCompatActivity  {
                         fragment = new AjusteCuentaFragment();
                         fragmentTransaction = true;
                         break;
+                    case R.id.codigoQR:
+                        fragment = new codigoQR();
+                        fragmentTransaction = true;
+                        break;
                 }
 
                 if (fragmentTransaction){
@@ -140,8 +145,9 @@ public class MainActivity extends AppCompatActivity  {
     private void setToolBar(){
         Toolbar toolbar = findViewById(R.id.toolbarMain);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_home);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.menul);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
     @Override

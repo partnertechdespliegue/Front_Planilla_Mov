@@ -1,8 +1,8 @@
-package com.app.partner.plan.Model.Request;
+package com.app.partner.plan.Model.Request.MODEL;
 
-import java.sql.Date;
+import com.app.partner.plan.Model.Request.DTO.TrabajadorDTO;
 
-public class Vacaciones {
+public class VacacionesMODEL {
     private int  idVacacion;
 
     private String fechaIni;
@@ -15,19 +15,19 @@ public class Vacaciones {
 
     private int diasTomados;
 
-    private Trabajador trabajador;
+    private TrabajadorDTO trabajadorDTO;
 
-    public Vacaciones() {
+    public VacacionesMODEL() {
     }
 
-    public Vacaciones(int idVacacion, String fechaIni, String fechaFin, int estado, int diasVendidos, int diasTomados, Trabajador trabajador) {
+    public VacacionesMODEL(int idVacacion, String fechaIni, String fechaFin, int estado, int diasVendidos, int diasTomados, TrabajadorDTO trabajadorDTO) {
         this.idVacacion = idVacacion;
         this.fechaIni = fechaIni;
         this.fechaFin = fechaFin;
         this.estado = estado;
         this.diasVendidos = diasVendidos;
         this.diasTomados = diasTomados;
-        this.trabajador = trabajador;
+        this.trabajadorDTO = trabajadorDTO;
     }
 
     public int getIdVacacion() {
@@ -78,11 +78,11 @@ public class Vacaciones {
         this.diasTomados = diasTomados;
     }
 
-    public Trabajador getTrabajador() {
-        return trabajador;
+    public TrabajadorDTO getTrabajadorDTO() {
+        return trabajadorDTO;
     }
 
-    public void setTrabajador(Trabajador trabajador) {
-        this.trabajador = trabajador;
+    public void setTrabajadorDTO(TrabajadorDTO trabajadorDTO) {
+        this.trabajadorDTO = trabajadorDTO;
     }
 }

@@ -11,29 +11,26 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 
-import com.app.partner.plan.Model.Request.AdelantoSueldo;
+import com.app.partner.plan.Model.Request.MODEL.AdelantoSueldoMODEL;
 import com.app.partner.plan.R;
 
-import java.sql.Date;
-import java.sql.Timestamp;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ListAdapterAdelantoSueldo extends BaseAdapter {
 
     private Context context;
-    private List<AdelantoSueldo> lsAdelantosSueldo = new ArrayList<>();
+    private List<AdelantoSueldoMODEL> lsAdelantosSueldo = new ArrayList<>();
     private ImageView imageViewVerAdelantoSueldo;
     private OnClickListener onClickListener;
 
-    public ListAdapterAdelantoSueldo(Context context, List<AdelantoSueldo> lsAdelantosSueldo, OnClickListener listener) {
+    public ListAdapterAdelantoSueldo(Context context, List<AdelantoSueldoMODEL> lsAdelantosSueldo, OnClickListener listener) {
         this.context = context;
         this.lsAdelantosSueldo = lsAdelantosSueldo;
         this.onClickListener = listener;
     }
 
-    public ListAdapterAdelantoSueldo(Context context, List<AdelantoSueldo> adelantoSueldos) {
+    public ListAdapterAdelantoSueldo(Context context, List<AdelantoSueldoMODEL> adelantoSueldoMODELS) {
     }
 
     @Override
@@ -89,6 +86,6 @@ public class ListAdapterAdelantoSueldo extends BaseAdapter {
     }
 
     public interface OnClickListener {
-        void onEyeClick(AdelantoSueldo adelantoSueldo, int position);
+        void onEyeClick(AdelantoSueldoMODEL adelantoSueldoMODEL, int position);
     }
 }

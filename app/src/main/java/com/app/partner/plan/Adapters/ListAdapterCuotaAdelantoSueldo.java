@@ -7,26 +7,24 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.app.partner.plan.Model.Request.AdelantoSueldo;
+import com.app.partner.plan.Model.Request.MODEL.AdelantoSueldoMODEL;
 import com.app.partner.plan.R;
-
 import java.util.List;
 
 public class ListAdapterCuotaAdelantoSueldo extends BaseAdapter {
 
     private Context context;
-    private List<AdelantoSueldo> lscuotas;
+    private List<AdelantoSueldoMODEL> lscuotas;
 
     private ListAdapterAdelantoSueldo.OnClickListener onClickListener;
 
-    public ListAdapterCuotaAdelantoSueldo(Context context, List<AdelantoSueldo> lscuotas, ListAdapterAdelantoSueldo.OnClickListener onClickListener) {
+    public ListAdapterCuotaAdelantoSueldo(Context context, List<AdelantoSueldoMODEL> lscuotas, ListAdapterAdelantoSueldo.OnClickListener onClickListener) {
         this.context = context;
         this.lscuotas = lscuotas;
         this.onClickListener = onClickListener;
     }
 
-    public ListAdapterCuotaAdelantoSueldo(Context context, List<AdelantoSueldo> lscuotas) {
+    public ListAdapterCuotaAdelantoSueldo(Context context, List<AdelantoSueldoMODEL> lscuotas) {
         this.context = context;
         this.lscuotas = lscuotas;
     }
@@ -79,6 +77,6 @@ public class ListAdapterCuotaAdelantoSueldo extends BaseAdapter {
     }
 
     public interface OnClickListener {
-        void onEyeClick(AdelantoSueldo adelantoSueldo, int position);
+        void onEyeClick(AdelantoSueldoMODEL adelantoSueldo, int position);
     }
 }

@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.app.partner.plan.Model.Request.Vacaciones;
+import com.app.partner.plan.Model.Request.MODEL.VacacionesMODEL;
 import com.app.partner.plan.R;
 
 import java.util.List;
@@ -16,16 +16,16 @@ import java.util.List;
 public class ListAdapterVacaciones extends BaseAdapter {
 
     private Context context;
-    private List<Vacaciones> lsVacaciones;
+    private List<VacacionesMODEL> lsVacaciones;
     private OnClickListener onClickListener;
 
-    public ListAdapterVacaciones(Context context, List<Vacaciones> lsVacaciones, OnClickListener listener){
+    public ListAdapterVacaciones(Context context, List<VacacionesMODEL> lsVacaciones, OnClickListener listener){
         this.context = context;
         this.lsVacaciones = lsVacaciones;
         this.onClickListener = listener;
     }
 
-    public ListAdapterVacaciones(Context context, List<Vacaciones> lsVacaciones) {
+    public ListAdapterVacaciones(Context context, List<VacacionesMODEL> lsVacaciones) {
         this.context = context;
         this.lsVacaciones = lsVacaciones;
     }
@@ -99,7 +99,7 @@ public class ListAdapterVacaciones extends BaseAdapter {
     }
 
     public interface OnClickListener {
-        void onEyeClick(Vacaciones vacaciones, int position);
-        void onAirPlaneClick(Vacaciones vacaciones, int position);
+        void onEyeClick(VacacionesMODEL vacacionesMODEL, int position);
+        void onAirPlaneClick(VacacionesMODEL vacacionesMODEL, int position);
     }
 }

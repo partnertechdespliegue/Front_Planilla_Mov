@@ -1,28 +1,28 @@
 package com.app.partner.plan.Model.Response;
 
-import com.app.partner.plan.Model.Request.AdelantoSueldo;
+import com.app.partner.plan.Model.Request.MODEL.AdelantoSueldoMODEL;
 
 import java.util.List;
 
 public class ResponseAdelantoS {
-    private List<AdelantoSueldo> aaData;
+    private List<AdelantoSueldoMODEL> aaData;
     private int estado;
     private String msg;
 
     public ResponseAdelantoS() {
     }
 
-    public ResponseAdelantoS(List<AdelantoSueldo> aaData, int estado, String msg) {
+    public ResponseAdelantoS(List<AdelantoSueldoMODEL> aaData, int estado, String msg) {
         this.aaData = aaData;
         this.estado = estado;
         this.msg = msg;
     }
 
-    public List<AdelantoSueldo> getAaData() {
+    public List<AdelantoSueldoMODEL> getAaData() {
         return aaData;
     }
 
-    public void setAaData(List<AdelantoSueldo> aaData) {
+    public void setAaData(List<AdelantoSueldoMODEL> aaData) {
         this.aaData = aaData;
     }
 

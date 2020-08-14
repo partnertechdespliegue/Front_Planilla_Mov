@@ -1,13 +1,17 @@
-package com.app.partner.plan.Model.Request;
+package com.app.partner.plan.Model.Request.MODEL;
 
-public class PdoAno {
+public class PdoAnoMODEL {
     private int idPdoAno;
     private int descripcion;
 
-    public PdoAno() {
+    public PdoAnoMODEL() {
     }
 
-    public PdoAno(int idPdoAno, int descripcion) {
+    public PdoAnoMODEL(int idPdoAno) {
+        this.idPdoAno = idPdoAno;
+    }
+
+    public PdoAnoMODEL(int idPdoAno, int descripcion) {
         this.idPdoAno = idPdoAno;
         this.descripcion = descripcion;
     }
