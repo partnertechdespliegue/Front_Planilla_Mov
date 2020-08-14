@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,19 +7,18 @@
     tools:context=".Fragments.InicioFragment"
     android:background="@color/white">
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
+    </ScrollView>
         <TextView
             android:id="@+id/titulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
-            android:text="PLANILLAS"
+            android:text="NOTICIAS"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/carouselDescubreOfertas">
@@ -54,7 +53,25 @@
             app:radius="-5dp"
             app:slideInterval="3000"></com.synnapps.carouselview.CarouselView>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/btnAsistencia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/buttonlogin"
+        android:drawableLeft="@drawable/camerin"
+        android:drawablePadding="8dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="Asistencia QR"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/text"
+        app:layout_constraintStart_toStartOf="@+id/text"
+        app:layout_constraintTop_toBottomOf="@+id/text"
+        app:layout_constraintVertical_bias="0.0">
 
+    </Button>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-</FrameLayout>
