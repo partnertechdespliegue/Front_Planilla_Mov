@@ -8,7 +8,9 @@ public class Comunes {
     public static final String KEY_NAME = "KEY_NAME";
     public static final String KEY_ID_PERFIL = "KEY_ID_PERFIL";
     public static final String KEY_REMEMBER = "KEY_REMEMBER";
+    public static final String KEY_TRABAJADOR = "KEY_TRABAJADOR";
 
     //https://plantec-back-movil.herokuapp.com/
     //https://rrhh-b.herokuapp.com/
+    //https://plantec-back-movil.herokuapp.com/
 }

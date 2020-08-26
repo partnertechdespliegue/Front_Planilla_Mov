@@ -96,7 +96,6 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<ResponseUsuario> call, Response<ResponseUsuario> response) {
                     if (response.isSuccessful()) {
-
                         ResponseUsuario user = response.body();
                         SharedPreferencesManager.setPreferences(Comunes.KEY_TOKEN, response.body().getAccess_token());
                         SharedPreferencesManager.setPreferences(Comunes.KEY_EMAIL, email);
@@ -104,6 +103,8 @@ public class LoginActivity extends AppCompatActivity {
                         SharedPreferencesManager.setPreferences(Comunes.KEY_NAME, user.getNombre());
                         SharedPreferencesManager.setPreferences(Comunes.KEY_ID_PERFIL, user.getId_perfil());
                         SharedPreferencesManager.setPreferences(Comunes.KEY_REMEMBER, swRecordar.isChecked());
+                        SharedPreferencesManager.setPreferences(response.body().getTrabajador());
+
                         Intent intentIniciar = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intentIniciar);
 

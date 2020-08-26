@@ -19,6 +19,7 @@ public class TrabajadorMODEL {
     private int afilAseguPens;
     private int epsServProp;
     private int comiMixta;
+    private String foto;
     private TipoDocMODEL tipoDocMODEL;
     private EstadoCivilMODEL estadoCivilMODEL;
     private DepartamentoMODEL departamentoMODEL;
@@ -30,6 +31,14 @@ public class TrabajadorMODEL {
     private EmpresaMODEL empresaMODEL;
     private SituacionMODEL situacionMODEL;
     private HorarioMODEL horarioMODEL;
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
 
     public String getNombres() {
         return nombres;
