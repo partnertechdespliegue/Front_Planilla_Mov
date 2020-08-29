@@ -22,6 +22,10 @@ public class HorarioMODEL {
     public HorarioMODEL() {
     }
 
+    public HorarioMODEL(int idHorario) {
+        this.idHorario = idHorario;
+    }
+
     public HorarioMODEL(int idHorario, String horIniDia, String horFinDia, String horAlmuerIni, String horAlmuerFin, String descripcion, boolean estado, boolean checkLunes, boolean checkMartes, boolean checkMiercoles, boolean checkJueves, boolean checkViernes, boolean checkSabado, boolean checkDomingo, String totalDias, EmpresaMODEL empresaMODEL) {
         this.idHorario = idHorario;
         this.horIniDia = horIniDia;

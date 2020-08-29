@@ -7,6 +7,10 @@ public class NivelEduMODEL {
     public NivelEduMODEL() {
     }
 
+    public NivelEduMODEL(int idNivelEdu) {
+        this.idNivelEdu = idNivelEdu;
+    }
+
     public NivelEduMODEL(int idNivelEdu, String descripcion) {
         this.idNivelEdu = idNivelEdu;
         this.descripcion = descripcion;

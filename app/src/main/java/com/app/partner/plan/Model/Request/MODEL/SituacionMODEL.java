@@ -7,6 +7,10 @@ public class SituacionMODEL {
     public SituacionMODEL() {
     }
 
+    public SituacionMODEL(int idSituacion) {
+        this.idSituacion = idSituacion;
+    }
+
     public SituacionMODEL(int idSituacion, String descripcion) {
         this.idSituacion = idSituacion;
         this.descripcion = descripcion;

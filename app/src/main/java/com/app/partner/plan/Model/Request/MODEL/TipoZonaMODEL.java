@@ -7,6 +7,10 @@ public class TipoZonaMODEL {
     public TipoZonaMODEL() {
     }
 
+    public TipoZonaMODEL(int idTipoZona) {
+        this.idTipoZona = idTipoZona;
+    }
+
     public TipoZonaMODEL(int idTipoZona, String descripcion) {
         this.idTipoZona = idTipoZona;
         this.descripcion = descripcion;

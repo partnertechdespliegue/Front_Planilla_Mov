@@ -15,18 +15,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+
             <ImageView
                 android:id="@+id/imageViewPefil"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
                 android:src="@drawable/chico"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.057" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <Button
                 android:id="@+id/btnCambiar"
@@ -50,17 +48,9 @@
                 android:layout_marginLeft="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                app:layout_constraintTop_toBottomOf="@+id/textView6"
+                android:textColor="#424242"/>
 
-            <EditText
-                android:id="@+id/editText7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
             <EditText
                 android:id="@+id/editText5"
@@ -70,7 +60,8 @@
                 android:layout_marginLeft="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView9" />
+                app:layout_constraintTop_toBottomOf="@+id/textView9"
+                android:textColor="#424242"/>
 
 
             <TextView
@@ -79,21 +70,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="4dp"
-                android:text="Nombre"
+                android:text="Nombres"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageViewPefil"></TextView>
 
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="15dp"
-                android:text="Apellido Materno"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText5" />
 
             <TextView
                 android:id="@+id/textView9"
@@ -101,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="15dp"
-                android:text="Apellido Paterno"
+                android:text="Correo"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editText2" />
@@ -120,7 +101,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_weight="0.5"
-                    android:text="Celular"
+                    android:text="Distrito"
                     android:textColor="@color/black" />
 
                 <TextView
@@ -128,9 +109,63 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="20dp"
                     android:layout_weight="0.5"
-                    android:text="Correo"
+                    android:text="Dirección"
                     android:textColor="@color/black" />
             </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/editText5">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="0.5"
+                    android:text="Apellido Paterno"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="0.5"
+                    android:text="Apellido Materno"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout19"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <EditText
+                    android:id="@+id/editApePater"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="0.5"
+                    android:textColor="#424242"/>
+
+                <EditText
+                    android:id="@+id/editApeMater"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="0.5"
+                    android:textColor="#424242"/>
+
+            </LinearLayout>
+
 
 
             <LinearLayout
@@ -139,14 +174,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@+id/editText7">
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout20">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_weight="0.5"
-                    android:text="Estado civil"
+                    android:text="Estado Civil"
                     android:textColor="@color/black" />
 
                 <TextView
@@ -167,16 +202,34 @@
                 tools:layout_editor_absoluteX="53dp">
 
                 <EditText
-                    android:layout_width="wrap_content"
+                    android:id="@+id/editEstadoC"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:layout_weight="0.5" />
+                    android:layout_weight="0.5"
+                    android:textColor="#424242"/>
 
-                <EditText
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
-                    android:layout_weight="0.5" />
+                    android:layout_weight="0.5">
+
+                    <EditText
+                        android:id="@+id/editFechaN"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:textColor="#424242"/>
+
+                    <ImageButton
+                        android:id="@+id/calendarBtn"
+                        android:layout_width="40dp"
+                        android:layout_height="38dp"
+                        android:layout_marginRight="20dp"
+                        android:src="@drawable/calendar"
+                        android:background="@color/tres"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -191,16 +244,21 @@
                 app:layout_constraintStart_toStartOf="parent">
 
                 <EditText
-                    android:layout_width="wrap_content"
+                    android:id="@+id/editDistrito"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:layout_weight="0.5" />
+                    android:layout_weight="0.5"
+                    android:textColor="#424242"
+                    />
 
                 <EditText
-                    android:layout_width="wrap_content"
+                    android:id="@+id/editDireccion"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="20dp"
-                    android:layout_weight="0.5" />
+                    android:layout_weight="0.5"
+                    android:textColor="#424242"/>
 
             </LinearLayout>
 

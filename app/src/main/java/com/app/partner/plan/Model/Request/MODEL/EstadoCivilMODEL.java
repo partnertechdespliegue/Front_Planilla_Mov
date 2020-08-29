@@ -7,6 +7,10 @@ public class EstadoCivilMODEL {
     public EstadoCivilMODEL() {
     }
 
+    public EstadoCivilMODEL(int idEstadoCivil) {
+        this.idEstadoCivil = idEstadoCivil;
+    }
+
     public EstadoCivilMODEL(int idEstadoCivil, String descripcion) {
         this.idEstadoCivil = idEstadoCivil;
         this.descripcion = descripcion;

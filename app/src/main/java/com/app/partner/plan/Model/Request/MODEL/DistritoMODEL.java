@@ -7,6 +7,10 @@ public class DistritoMODEL {
     public DistritoMODEL() {
     }
 
+    public DistritoMODEL(int idDistrito) {
+        this.idDistrito = idDistrito;
+    }
+
     public DistritoMODEL(int idDistrito, String descripcion) {
         this.idDistrito = idDistrito;
         this.descripcion = descripcion;

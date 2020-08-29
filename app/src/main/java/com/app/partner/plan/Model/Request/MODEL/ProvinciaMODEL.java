@@ -7,6 +7,10 @@ public class ProvinciaMODEL {
     public ProvinciaMODEL() {
     }
 
+    public ProvinciaMODEL(int idProvincia) {
+        this.idProvincia = idProvincia;
+    }
+
     public ProvinciaMODEL(int idProvincia, String descripcion) {
         this.idProvincia = idProvincia;
         this.descripcion = descripcion;

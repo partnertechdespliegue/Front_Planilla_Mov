@@ -1,5 +1,8 @@
 package com.app.partner.plan.Model.Request.MODEL;
 
+import java.sql.Timestamp;
+import java.util.List;
+
 public class TrabajadorMODEL {
 
     private int idTrabajador;
@@ -9,35 +12,167 @@ public class TrabajadorMODEL {
     private String nroDoc;
     private String fecNac;
     private String sexo;
+    private String correo;
     private String nroCel;
     private String direccion;
     private String nomZona;
     private String referencia;
     private int nroHij;
     private String fecRegPens;
+    private String nroCuspp;//////////////////////////
+    private Timestamp fecIngrSalud;///////////////////////
+    private String nroEssalud;
     private int essaludVida;
     private int afilAseguPens;
     private int epsServProp;
     private int comiMixta;
     private String foto;
-    private TipoDocMODEL tipoDocMODEL;
-    private EstadoCivilMODEL estadoCivilMODEL;
-    private DepartamentoMODEL departamentoMODEL;
-    private ProvinciaMODEL provinciaMODEL;
-    private DistritoMODEL distritoMODEL;
-    private TipoZonaMODEL tipoZonaMODEL;
-    private NivelEduMODEL nivelEduMODEL;
-    private OcupacionMODEL ocupacionMODEL;
-    private EmpresaMODEL empresaMODEL;
-    private SituacionMODEL situacionMODEL;
-    private HorarioMODEL horarioMODEL;
-
-    public String getFoto() {
-        return foto;
+    private Boolean estado;/////////////////////
+    private TipoDocMODEL tipoDoc;
+    private PaisMODEL pais;///////////////////
+    private EstadoCivilMODEL estadoCivil;
+    private DepartamentoMODEL departamento;
+    private ProvinciaMODEL provincia;
+    private DistritoMODEL distrito;
+    private TipoZonaMODEL tipoZona;
+    private NivelEduMODEL nivelEdu;
+    private OcupacionMODEL ocupacion;
+    private EmpresaMODEL empresa;
+    private AFPMODEL afp;///////////////////////
+    private EPSMODEL eps;///////////////////
+    private RegSaludMODEL regSalud;///////////////////////
+    private SituacionMODEL situacion;
+    private HorarioMODEL horario;
+    /*private List<ContratoMODEL> lsContrato;/////////////////////
+    private List<DerechoHabientesMODEL> lsderechoHabiente;/////////////////////////
+    private SuspencionMODEL suspencion;//////////////
+    private List<RheMODEL> rhe;///////////////////
+    private EncargadoPlanillaMODEL encargadoPlanilla;/////////////////////
+    private List<SolicitudMODEL> lsSolicitud;//////////////////
+*/
+    public TrabajadorMODEL() {
     }
 
-    public void setFoto(String foto) {
+
+
+    @Override
+    public String toString(){
+
+        return "Id: '" + this.idTrabajador + "', Nombre: '" + this.nombres + "', ApellidoP: '" +
+                this.apePater + "'" + "', Apellido Mater: '" + this.apeMater + "'" + "', Numero doc: '" +
+                this.nroDoc + "'" + "', Fecha N: '" + this.fecNac + "'" + "', Sexo: '" +
+                this.sexo + "'" + "', Correo: '" + this.correo + "'" + "', Numero Cel: '" +
+                this.nroCel + "'" + "', Direccion: '" + this.direccion + "'" + "', Nom Zona: '" +
+                this.nomZona + "'" + "', Referencia: '" + this.referencia + "'" + "', Nro hijos: '" +
+                this.nroHij + "'" + "', FecReg: '" + this.fecRegPens + "'" + "', Nro cuspp: '" +
+                this.nroCuspp + "'" + "', fecIngrSalud: '" + this.fecIngrSalud + "'" + "', Numero essalud: '" +
+                this.nroEssalud + "'" + "', EssaludVida: '" + this.essaludVida + "'" + "', afilAseguPens: '" +
+                this.afilAseguPens + "'" + "', Eps: '" + this.epsServProp + "'" + "', comiMixta: '" +
+                this.comiMixta + "'" + "', Foto: '" + this.foto + "'" + "', estado: '" +
+                this.estado + "'" + "', tipoDoc descripcion: '" + this.tipoDoc.getDescripcion() + "'" + "', Tipo doc id: '" +
+                this.tipoDoc.getIdTipoDoc() + "'" + "', pais: '" + this.pais + "'" + "', estado civil id: '" +
+                this.estadoCivil.getIdEstadoCivil() + "'" + "', estadoC descipcion: '" + this.estadoCivil.getDescripcion() + "'" + "', departamentoId: '" +
+                this.departamento.getIdDepartamento() + "'" + "', departamentoDescr: '" + this.departamento.getDescripcion() + "'" + "', provincia id: '" +
+
+                this.provincia.getIdProvincia() + "'" + "', provincia descip: '" + this.provincia.getDescripcion() + "'" + "', distrito: '" +
+                this.distrito + "'" + "', TipoZona: '" + this.tipoZona + "'" + "', NivelEdu: '" +
+                this.nivelEdu + "'" + "', Ocupacion: '" + this.ocupacion + "'" + "', empresa: '" +
+                this.empresa + "'" + "', afp: '" + this.afp + "'" + "', eps: '" +
+                this.eps + "'" + "', regsalud: '" + this.regSalud + "'" + "', Situacion: '" +
+                this.situacion + "'" + "', horario: '" +
+                this.horario + "'";
+
+    }
+    public TrabajadorMODEL(int idTrabajador) {
+        this.idTrabajador = idTrabajador;
+    }
+
+    //public TrabajadorMODEL(TrabajadorMODEL trabajadorMODEL){
+    //}
+
+    public TrabajadorMODEL(int idTrabajador, String nombres, String apePater, String apeMater, String nroDoc, String fecNac, String sexo, String correo, String nroCel, String direccion, String nomZona, String referencia, int nroHij, String fecRegPens, String nroCuspp, Timestamp fecIngrSalud, String nroEssalud, int essaludVida, int afilAseguPens, int epsServProp, int comiMixta, String foto, Boolean estado, TipoDocMODEL tipoDoc, PaisMODEL pais, EstadoCivilMODEL estadoCivil, DepartamentoMODEL departamento, ProvinciaMODEL provincia, DistritoMODEL distrito, TipoZonaMODEL tipoZona, NivelEduMODEL nivelEdu, OcupacionMODEL ocupacion, EmpresaMODEL empresa, AFPMODEL afp, EPSMODEL eps, RegSaludMODEL regSalud, SituacionMODEL situacion, HorarioMODEL horario) {
+        this.idTrabajador = idTrabajador;
+        this.nombres = nombres;
+        this.apePater = apePater;
+        this.apeMater = apeMater;
+        this.nroDoc = nroDoc;
+        this.fecNac = fecNac;
+        this.sexo = sexo;
+        this.correo = correo;
+        this.nroCel = nroCel;
+        this.direccion = direccion;
+        this.nomZona = nomZona;
+        this.referencia = referencia;
+        this.nroHij = nroHij;
+        this.fecRegPens = fecRegPens;
+        this.nroCuspp = nroCuspp;
+        this.fecIngrSalud = fecIngrSalud;
+        this.nroEssalud = nroEssalud;
+        this.essaludVida = essaludVida;
+        this.afilAseguPens = afilAseguPens;
+        this.epsServProp = epsServProp;
+        this.comiMixta = comiMixta;
         this.foto = foto;
+        this.estado = estado;
+        this.tipoDoc = tipoDoc;
+        this.pais = pais;
+        this.estadoCivil = estadoCivil;
+        this.departamento = departamento;
+        this.provincia = provincia;
+        this.distrito = distrito;
+        this.tipoZona = tipoZona;
+        this.nivelEdu = nivelEdu;
+        this.ocupacion = ocupacion;
+        this.empresa = empresa;
+        this.afp = afp;
+        this.eps = eps;
+        this.regSalud = regSalud;
+        this.situacion = situacion;
+        this.horario = horario;
+    }
+
+    public TrabajadorMODEL(int idTrabajador, String nombres, String apePater, String apeMater, String nroDoc, String fecNac, String sexo, String correo, String nroCel, String direccion, String nomZona, String referencia, int nroHij, String fecRegPens, int essaludVida, int afilAseguPens, int epsServProp, int comiMixta, String foto, TipoDocMODEL tipoDoc, EstadoCivilMODEL estadoCivil, DepartamentoMODEL departamento, ProvinciaMODEL provincia, DistritoMODEL distrito, TipoZonaMODEL tipoZona, NivelEduMODEL nivelEdu, OcupacionMODEL ocupacion, EmpresaMODEL empresa, SituacionMODEL situacion, HorarioMODEL horario) {
+        this.idTrabajador = idTrabajador;
+        this.nombres = nombres;
+        this.apePater = apePater;
+        this.apeMater = apeMater;
+        this.nroDoc = nroDoc;
+        this.fecNac = fecNac;
+        this.sexo = sexo;
+        this.correo = correo;
+        this.nroCel = nroCel;
+        this.direccion = direccion;
+        this.nomZona = nomZona;
+        this.referencia = referencia;
+        this.nroHij = nroHij;
+        this.fecRegPens = fecRegPens;
+        this.essaludVida = essaludVida;
+        this.afilAseguPens = afilAseguPens;
+        this.epsServProp = epsServProp;
+        this.comiMixta = comiMixta;
+        this.foto = foto;
+        this.tipoDoc = tipoDoc;
+        this.estadoCivil = estadoCivil;
+        this.departamento = departamento;
+        this.provincia = provincia;
+        this.distrito = distrito;
+        this.tipoZona = tipoZona;
+        this.nivelEdu = nivelEdu;
+        this.ocupacion = ocupacion;
+        this.empresa = empresa;
+        this.situacion = situacion;
+        this.horario = horario;
+    }
+
+    public TrabajadorMODEL(TrabajadorMODEL p) {
+    }
+
+    public int getIdTrabajador() {
+        return idTrabajador;
+    }
+
+    public void setIdTrabajador(int idTrabajador) {
+        this.idTrabajador = idTrabajador;
     }
 
     public String getNombres() {
@@ -88,6 +223,14 @@ public class TrabajadorMODEL {
         this.sexo = sexo;
     }
 
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
     public String getNroCel() {
         return nroCel;
     }
@@ -112,12 +255,28 @@ public class TrabajadorMODEL {
         this.nomZona = nomZona;
     }
 
+    public String getReferencia() {
+        return referencia;
+    }
+
+    public void setReferencia(String referencia) {
+        this.referencia = referencia;
+    }
+
     public int getNroHij() {
         return nroHij;
     }
 
     public void setNroHij(int nroHij) {
         this.nroHij = nroHij;
+    }
+
+    public String getFecRegPens() {
+        return fecRegPens;
+    }
+
+    public void setFecRegPens(String fecRegPens) {
+        this.fecRegPens = fecRegPens;
     }
 
     public int getEssaludVida() {
@@ -152,131 +311,211 @@ public class TrabajadorMODEL {
         this.comiMixta = comiMixta;
     }
 
-    public TipoDocMODEL getTipoDocMODEL() {
-        return tipoDocMODEL;
+    public String getFoto() {
+        return foto;
     }
 
-    public void setTipoDocMODEL(TipoDocMODEL tipoDocMODEL) {
-        this.tipoDocMODEL = tipoDocMODEL;
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
-    public EstadoCivilMODEL getEstadoCivilMODEL() {
-        return estadoCivilMODEL;
+    public TipoDocMODEL getTipoDoc() {
+        return tipoDoc;
     }
 
-    public void setEstadoCivilMODEL(EstadoCivilMODEL estadoCivilMODEL) {
-        this.estadoCivilMODEL = estadoCivilMODEL;
+    public void setTipoDoc(TipoDocMODEL tipoDoc) {
+        this.tipoDoc = tipoDoc;
     }
 
-    public DepartamentoMODEL getDepartamentoMODEL() {
-        return departamentoMODEL;
+    public EstadoCivilMODEL getEstadoCivil() {
+        return estadoCivil;
     }
 
-    public void setDepartamentoMODEL(DepartamentoMODEL departamentoMODEL) {
-        this.departamentoMODEL = departamentoMODEL;
+    public void setEstadoCivil(EstadoCivilMODEL estadoCivil) {
+        this.estadoCivil = estadoCivil;
     }
 
-    public ProvinciaMODEL getProvinciaMODEL() {
-        return provinciaMODEL;
+    public DepartamentoMODEL getDepartamento() {
+        return departamento;
     }
 
-    public void setProvinciaMODEL(ProvinciaMODEL provinciaMODEL) {
-        this.provinciaMODEL = provinciaMODEL;
+    public void setDepartamento(DepartamentoMODEL departamento) {
+        this.departamento = departamento;
     }
 
-    public DistritoMODEL getDistritoMODEL() {
-        return distritoMODEL;
+    public ProvinciaMODEL getProvincia() {
+        return provincia;
     }
 
-    public void setDistritoMODEL(DistritoMODEL distritoMODEL) {
-        this.distritoMODEL = distritoMODEL;
+    public void setProvincia(ProvinciaMODEL provincia) {
+        this.provincia = provincia;
     }
 
-    public TipoZonaMODEL getTipoZonaMODEL() {
-        return tipoZonaMODEL;
+    public DistritoMODEL getDistrito() {
+        return distrito;
     }
 
-    public void setTipoZonaMODEL(TipoZonaMODEL tipoZonaMODEL) {
-        this.tipoZonaMODEL = tipoZonaMODEL;
+    public void setDistrito(DistritoMODEL distrito) {
+        this.distrito = distrito;
     }
 
-    public NivelEduMODEL getNivelEduMODEL() {
-        return nivelEduMODEL;
+    public TipoZonaMODEL getTipoZona() {
+        return tipoZona;
     }
 
-    public void setNivelEduMODEL(NivelEduMODEL nivelEduMODEL) {
-        this.nivelEduMODEL = nivelEduMODEL;
+    public void setTipoZona(TipoZonaMODEL tipoZona) {
+        this.tipoZona = tipoZona;
     }
 
-    public OcupacionMODEL getOcupacionMODEL() {
-        return ocupacionMODEL;
+    public NivelEduMODEL getNivelEdu() {
+        return nivelEdu;
     }
 
-    public void setOcupacionMODEL(OcupacionMODEL ocupacionMODEL) {
-        this.ocupacionMODEL = ocupacionMODEL;
+    public void setNivelEdu(NivelEduMODEL nivelEdu) {
+        this.nivelEdu = nivelEdu;
     }
 
-    public EmpresaMODEL getEmpresaMODEL() {
-        return empresaMODEL;
+    public OcupacionMODEL getOcupacion() {
+        return ocupacion;
     }
 
-    public void setEmpresaMODEL(EmpresaMODEL empresaMODEL) {
-        this.empresaMODEL = empresaMODEL;
+    public void setOcupacion(OcupacionMODEL ocupacion) {
+        this.ocupacion = ocupacion;
     }
 
-    public SituacionMODEL getSituacionMODEL() {
-        return situacionMODEL;
+    public EmpresaMODEL getEmpresa() {
+        return empresa;
     }
 
-    public void setSituacionMODEL(SituacionMODEL situacionMODEL) {
-        this.situacionMODEL = situacionMODEL;
+    public void setEmpresa(EmpresaMODEL empresa) {
+        this.empresa = empresa;
     }
 
-    public HorarioMODEL getHorarioMODEL() {
-        return horarioMODEL;
+    public SituacionMODEL getSituacion() {
+        return situacion;
     }
 
-    public void setHorarioMODEL(HorarioMODEL horarioMODEL) {
-        this.horarioMODEL = horarioMODEL;
+    public void setSituacion(SituacionMODEL situacion) {
+        this.situacion = situacion;
     }
 
-    public TrabajadorMODEL() {
+    public HorarioMODEL getHorario() {
+        return horario;
     }
 
-
-    public TrabajadorMODEL(int idTrabajador) {
-        this.idTrabajador = idTrabajador;
+    public void setHorario(HorarioMODEL horario) {
+        this.horario = horario;
     }
 
-    public int getIdTrabajador() {
-        return idTrabajador;
+    public String getNroCuspp() {
+        return nroCuspp;
     }
 
-    public void setIdTrabajador(int idTrabajador) {
-        this.idTrabajador = idTrabajador;
-    }
-/*
-    public String getNombres() {
-        return nombres;
+    public void setNroCuspp(String nroCuspp) {
+        this.nroCuspp = nroCuspp;
     }
 
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
+    public Timestamp getFecIngrSalud() {
+        return fecIngrSalud;
     }
 
-    public String getApePater() {
-        return apePater;
+    public void setFecIngrSalud(Timestamp fecIngrSalud) {
+        this.fecIngrSalud = fecIngrSalud;
     }
 
-    public void setApePater(String apePater) {
-        this.apePater = apePater;
+    public String getNroEssalud() {
+        return nroEssalud;
     }
 
-    public String getApeMater() {
-        return apeMater;
+    public void setNroEssalud(String nroEssalud) {
+        this.nroEssalud = nroEssalud;
     }
 
-    public void setApeMater(String apeMater) {
-        this.apeMater = apeMater;
+    public Boolean getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
+    }
+
+    public PaisMODEL getPais() {
+        return pais;
+    }
+
+    public void setPais(PaisMODEL pais) {
+        this.pais = pais;
+    }
+
+    public AFPMODEL getAfp() {
+        return afp;
+    }
+
+    public void setAfp(AFPMODEL afp) {
+        this.afp = afp;
+    }
+
+    public EPSMODEL getEps() {
+        return eps;
+    }
+
+    public void setEps(EPSMODEL eps) {
+        this.eps = eps;
+    }
+
+    public RegSaludMODEL getRegSalud() {
+        return regSalud;
+    }
+
+    public void setRegSalud(RegSaludMODEL regSalud) {
+        this.regSalud = regSalud;
+    }
+
+   /* public List<ContratoMODEL> getLsContrato() {
+        return lsContrato;
+    }
+
+    public void setLsContrato(List<ContratoMODEL> lsContrato) {
+        this.lsContrato = lsContrato;
+    }
+
+    public List<DerechoHabientesMODEL> getLsderechoHabiente() {
+        return lsderechoHabiente;
+    }
+
+    public void setLsderechoHabiente(List<DerechoHabientesMODEL> lsderechoHabiente) {
+        this.lsderechoHabiente = lsderechoHabiente;
+    }
+
+    public SuspencionMODEL getSuspencion() {
+        return suspencion;
+    }
+
+    public void setSuspencion(SuspencionMODEL suspencion) {
+        this.suspencion = suspencion;
+    }
+
+    public List<RheMODEL> getRhe() {
+        return rhe;
+    }
+
+    public void setRhe(List<RheMODEL> rhe) {
+        this.rhe = rhe;
+    }
+
+    public EncargadoPlanillaMODEL getEncargadoPlanilla() {
+        return encargadoPlanilla;
+    }
+
+    public void setEncargadoPlanilla(EncargadoPlanillaMODEL encargadoPlanilla) {
+        this.encargadoPlanilla = encargadoPlanilla;
+    }
+
+    public List<SolicitudMODEL> getLsSolicitud() {
+        return lsSolicitud;
+    }
+
+    public void setLsSolicitud(List<SolicitudMODEL> lsSolicitud) {
+        this.lsSolicitud = lsSolicitud;
     }*/
 }

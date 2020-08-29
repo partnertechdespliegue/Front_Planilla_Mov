@@ -7,6 +7,10 @@ public class OcupacionMODEL {
     public OcupacionMODEL() {
     }
 
+    public OcupacionMODEL(int idOcupacion) {
+        this.idOcupacion = idOcupacion;
+    }
+
     public OcupacionMODEL(int idOcupacion, String descripcion) {
         this.idOcupacion = idOcupacion;
         this.descripcion = descripcion;

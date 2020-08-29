@@ -8,6 +8,10 @@ public class TipoDocMODEL {
     public TipoDocMODEL() {
     }
 
+    public TipoDocMODEL(int idTipoDoc) {
+        this.idTipoDoc = idTipoDoc;
+    }
+
     public TipoDocMODEL(int idTipoDoc, String descripcion) {
         this.idTipoDoc = idTipoDoc;
         this.descripcion = descripcion;

@@ -7,6 +7,10 @@ public class DepartamentoMODEL {
     public DepartamentoMODEL() {
     }
 
+    public DepartamentoMODEL(int idDepartamento) {
+        this.idDepartamento = idDepartamento;
+    }
+
     public DepartamentoMODEL(int idDepartamento, String descripcion) {
         this.idDepartamento = idDepartamento;
         this.descripcion = descripcion;
