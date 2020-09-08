@@ -61,7 +61,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView9"
-                android:textColor="#424242"/>
+                android:textColor="#424242"
+                android:drawablePadding="8dp"/>
 
 
             <TextView
@@ -227,7 +228,7 @@
                         android:layout_height="38dp"
                         android:layout_marginRight="20dp"
                         android:src="@drawable/calendar"
-                        android:background="@color/tres"/>
+                        android:background="@drawable/buttonlogin"/>
 
                 </LinearLayout>
 

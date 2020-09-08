@@ -5,45 +5,65 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.VacacionesFragment"
-    android:background="@color/siete">
+    android:background="@color/white">
 
-    <EditText
-        android:id="@+id/editTextContrasenaLogin"
-        android:layout_width="337dp"
+    <TextView
+        android:id="@+id/texto"
+        android:textColor="#A3A4A4"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/uno"
-        android:ems="10"
-        android:hint="Buscar"
-        android:inputType="textPassword"
-        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.581"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabSolicitarAdelantoVacacion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="400dp"
-        android:layout_marginEnd="50dp"
-        android:clickable="true"
-        android:src="@drawable/airplaneright"
+        <EditText
+            android:id="@+id/editTextContrasenaLogin"
+            android:layout_width="337dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/uno"
+            android:ems="10"
+            android:hint="Buscar"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.581"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabSolicitarAdelantoVacacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="400dp"
+            android:layout_marginEnd="50dp"
+            android:clickable="true"
+            android:src="@drawable/airplaneright"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ListView
+            android:id="@+id/listViewVacacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextContrasenaLogin"></ListView>
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieVacio"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ListView
-        android:id="@+id/listViewVacacion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextContrasenaLogin"></ListView>
-
-
-
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_fileName="vacio.json"
+        android:visibility="invisible"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

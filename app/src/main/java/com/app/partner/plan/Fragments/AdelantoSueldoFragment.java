@@ -9,8 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.app.partner.plan.Activities.MainActivity;
 import com.app.partner.plan.Adapters.ListAdapterAdelantoSueldo;
 import com.app.partner.plan.Model.Request.MODEL.AdelantoSueldoMODEL;
@@ -44,6 +46,11 @@ public class AdelantoSueldoFragment extends Fragment implements View.OnClickList
 
     FragmentAdelantoListener listener;
 
+    TextView texton;
+
+    LottieAnimationView vacin;
+
+
     private ListView listViewAdelantarSueldo;
 
     private ListAdapterAdelantoSueldo adapterAdelantoSueldo;
@@ -63,6 +70,7 @@ public class AdelantoSueldoFragment extends Fragment implements View.OnClickList
         listarAdelanto();
         crearListView();
         accionFabSolicitarAdelanto();
+        validacion();
 //      accionFabVerAdelanto();
         return view;
     }
@@ -93,6 +101,16 @@ public class AdelantoSueldoFragment extends Fragment implements View.OnClickList
         listViewAdelantarSueldo = view.findViewById(R.id.listViewAdelantoSueldo);
         fabSolicitarAdelanto = view.findViewById(R.id.fabSolicitarAdelantoSueldo);
         imageViewVerAdelantoSueldo = view.findViewById(R.id.imageViewVerAdelantoSueldo);
+        vacin = view.findViewById(R.id.lottieVacin);
+        texton = view.findViewById(R.id.texton);
+    }
+
+    public void validacion(){
+        if(listadelantoSueldoMODELS.size()==0){
+            System.out.println("ls");
+            texton.setText("No hay adelanto de sueldo para mostrar");
+            vacin.setVisibility(View.VISIBLE);
+        }
     }
 
     public void listarAdelanto() {
@@ -106,7 +124,7 @@ public class AdelantoSueldoFragment extends Fragment implements View.OnClickList
             public void onResponse(Call<ResponseAdelantoS> call, Response<ResponseAdelantoS> response) {
                 if (response.isSuccessful()) {
                     listadelantoSueldoMODELS = response.body().getAaData();
-                    System.out.println("RESPONSEEEEEEEEEEEEEEEEEEEEEEEEEEEEE"+response);
+                    //System.out.println(listadelantoSueldoMODELS.size());
                     adapterAdelantoSueldo = new ListAdapterAdelantoSueldo(getContext(), listadelantoSueldoMODELS);
                     listViewAdelantarSueldo.setAdapter(adapterAdelantoSueldo);
                     crearListView();

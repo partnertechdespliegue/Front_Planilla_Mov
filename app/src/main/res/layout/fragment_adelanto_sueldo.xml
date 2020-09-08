@@ -4,7 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.AdelantoSueldoFragment">
+    tools:context=".Fragments.AdelantoSueldoFragment"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/texton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:textColor="#A3A4A4"
+        app:layout_constraintBottom_toBottomOf="@+id/lottieVacin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieVacin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/listViewAdelantoSueldo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="vacio.json"
+        app:lottie_loop="true" />
 
     <ListView
         android:id="@+id/listViewAdelantoSueldo"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.LoginActivity"
-    android:background="#F6F9FA">
+    android:background="@color/white">
 
 
     <ImageView
@@ -81,7 +81,7 @@
             android:background="@drawable/buttonlogin2"
             android:fontFamily="@font/roboto"
             android:text="Crear cuenta"
-            android:textColor="#1F618D"
+            android:textColor="@color/cuatro"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -92,6 +92,7 @@
         <EditText
             android:id="@+id/editTextUsuarioLogin"
             android:layout_width="0dp"
+            android:drawableTint="@color/cuatro"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:drawableLeft="@drawable/ic_person_blue"
@@ -102,7 +103,7 @@
             android:inputType="textPersonName"
             android:padding="20dp"
             android:shadowColor="@color/cuatro"
-            android:textColorHint="@color/tres"
+            android:textColorHint="@color/cuatro"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -114,13 +115,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:drawablePadding="8dp"
+            android:drawableTint="@color/cuatro"
             android:drawableLeft="@drawable/ic_lock_blue"
-            android:ems="10"
             android:fontFamily="@font/roboto_light"
             android:hint="@string/contrasena_login"
             android:inputType="textPassword"
             android:padding="20dp"
-            android:textColorHint="@color/tres"
+            android:textColorHint="@color/cuatro"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -135,7 +137,7 @@
             android:checked="true"
             android:fontFamily="@font/roboto"
             android:text="@string/SwRecordar"
-            android:textColor="@color/tres"
+            android:textColor="@color/cuatro"
             android:theme="@style/SwitchStyle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextContrasenaLogin" />

@@ -7,7 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.airbnb.lottie.LottieAnimationView;
 import com.app.partner.plan.Adapters.ListAdapterBoletas;
 import com.app.partner.plan.Model.Request.DTO.PlanillaHistoricoDTO;
 import com.app.partner.plan.Model.Request.DTO.TrabajadorDTO;
@@ -29,6 +32,9 @@ public class GestionBoletas extends Fragment implements View.OnClickListener{
 
     private IBoletas iBoletas;
     private BoletaInterface boletaInterface;
+
+    LottieAnimationView vacin;
+    TextView texton;
 
     FragmentBoletasListener listener;
 
@@ -59,12 +65,16 @@ public class GestionBoletas extends Fragment implements View.OnClickListener{
         retrofitInit();
         listarBoletas();
         crearListView();
+        validacionBoleta();
+        validacion();
         return view;
     }
 
 
     private void obtenerViews(View view) {
         listViewBoletas = view.findViewById(R.id.ListViewBoletas);
+        vacin = view.findViewById(R.id.lottieVacin);
+        texton = view.findViewById(R.id.texton);
     }
 
 
@@ -78,6 +88,7 @@ public class GestionBoletas extends Fragment implements View.OnClickListener{
             public void onResponse(Call<ResponseBoletas> call, Response<ResponseBoletas> response) {
                 if (response.isSuccessful()) {
                     listPlanillaH = response.body().getAaData();
+                    System.out.println("tamaño"+listPlanillaH.size());
                     adapterBoletas = new ListAdapterBoletas(getContext(),listPlanillaH);
                     listViewBoletas.setAdapter(adapterBoletas);
                     crearListView();
@@ -90,10 +101,23 @@ public class GestionBoletas extends Fragment implements View.OnClickListener{
         });
     }
 
+    private void validacion(){
+        if(listPlanillaH.size()==0){
+            System.out.println("ls");
+            vacin.setVisibility(View.VISIBLE);
+            texton.setText("No hay boletas para mostrar");
+        }
+    }
+
+    private void validacionBoleta(){
+        if(listPlanillaH==null){
+            Toast.makeText(getContext(), "downland", Toast.LENGTH_SHORT).show();
+        }
+    }
 
 
     private void crearListView( ) {
-        System.out.println(listPlanillaH.size());
+        System.out.println("lista"+listPlanillaH.size());
         adapterBoletas = new ListAdapterBoletas(getContext(), listPlanillaH, new ListAdapterBoletas.OnClickListener() {
             @Override
             public void onDownland(PlanillaHistoricoDTO planillaHistorico, int position) {

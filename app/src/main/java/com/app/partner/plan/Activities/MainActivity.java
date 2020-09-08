@@ -14,22 +14,31 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.app.partner.plan.Common.Comunes;
+import com.app.partner.plan.Common.SharedPreferencesManager;
 import com.app.partner.plan.Fragments.AdelantoSueldoFragment;
 import com.app.partner.plan.Fragments.AjusteCuentaFragment;
 import com.app.partner.plan.Fragments.InicioFragment;
 import com.app.partner.plan.Fragments.VacacionesFragment;
 import com.app.partner.plan.Fragments.GestionBoletas;
+import com.app.partner.plan.Model.Request.MODEL.TrabajadorMODEL;
 import com.app.partner.plan.R;
 import com.app.partner.plan.codigoQR;
 import com.google.android.material.navigation.NavigationView;
+import com.squareup.picasso.Picasso;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity  {
 
     private DrawerLayout drawerMain;
     private NavigationView navigationViewMain;
-    TextView tvCerrarSesion;
+    TextView tvCerrarSesion, txtVapellido, txtvNombres;
+    CircleImageView fotoCircle;
 
     Fragment inicioFragment;
+
+    TrabajadorMODEL trabajadorMODEL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +49,24 @@ public class MainActivity extends AppCompatActivity  {
         if (savedInstanceState == null) {
             setFragmentDefecto();
         }
+
         obtenerViews();
+        MostrarImg();
         setToolBar();
         agregarDrawer();
         agregarNavigationView();
 
+        int requestCode = 0;
+        String[] permissions = null;
+        int[] grantResults = null;
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+
+       // super.onRequestPermissionsResult(int requestCode, String[] permissions,int[] grantResults);
+
 
     }
+
 
     private void agregarDrawer() {
         drawerMain.addDrawerListener(new DrawerLayout.DrawerListener() {
@@ -123,6 +143,10 @@ public class MainActivity extends AppCompatActivity  {
         drawerMain = findViewById(R.id.drawerMain);
         navigationViewMain = findViewById(R.id.navegationViewMain);
         tvCerrarSesion = findViewById(R.id.textViewCerrarSesionMain);
+        fotoCircle = navigationViewMain.getHeaderView(0).findViewById(R.id.imageViewPefil);
+        txtVapellido = navigationViewMain.getHeaderView(0).findViewById(R.id.textViewApellidoNavigation);
+        txtvNombres = navigationViewMain.getHeaderView(0).findViewById(R.id.textViewNombreNavigation);
+
         tvCerrarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -131,6 +155,21 @@ public class MainActivity extends AppCompatActivity  {
                 finish();
             }
         });
+    }
+
+    public void MostrarImg(){
+        trabajadorMODEL = SharedPreferencesManager.getTrabajadorMODEL();
+
+        if(trabajadorMODEL.getFoto()!=null){
+            Picasso.get().load(Comunes.URL_BACK +"api/trabajador/uploadImage/img/"+trabajadorMODEL.getFoto()).into(fotoCircle);
+            System.out.println(trabajadorMODEL.toString());
+
+        }
+
+        txtVapellido.setText(SharedPreferencesManager.getTrabajadorMODEL().getApePater());
+        txtvNombres.setText(SharedPreferencesManager.getTrabajadorMODEL().getNombres());
+
+
     }
 
     private void setFragmentDefecto() {
@@ -145,9 +184,16 @@ public class MainActivity extends AppCompatActivity  {
     private void setToolBar(){
         Toolbar toolbar = findViewById(R.id.toolbarMain);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.menul);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.me);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
 
+
+    private void setTooli(){
+        Toolbar toolbar = findViewById(R.id.toolbarMain);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.espalda);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override

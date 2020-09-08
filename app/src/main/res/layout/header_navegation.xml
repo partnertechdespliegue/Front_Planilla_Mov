@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="180dp"
-    android:background="@color/cuatro">
+    android:background="@drawable/headerbackground">
 
     <TextView
         android:id="@+id/textViewApellidoNavigation"
@@ -19,6 +19,15 @@
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageViewPefil"
         app:layout_constraintTop_toTopOf="@+id/imageViewPefil" />
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/confirmar"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewNombreNavigation"
+        app:layout_constraintStart_toEndOf="@+id/textViewApellidoNavigation"
+        app:layout_constraintTop_toTopOf="@+id/textViewApellidoNavigation" />
 
     <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/imageViewPefil"

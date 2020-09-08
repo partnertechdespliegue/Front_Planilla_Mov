@@ -83,6 +83,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+
     private void logueo(){
 
          String email = edtUsuairo.getText().toString();

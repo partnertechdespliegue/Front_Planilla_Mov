@@ -2,6 +2,7 @@ package com.app.partner.plan.Fragments;
 
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -10,7 +11,9 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.app.partner.plan.Activities.MainActivity;
 import com.app.partner.plan.Adapters.ListAdapterVacaciones;
 import com.app.partner.plan.Model.Request.MODEL.TrabajadorMODEL;
@@ -40,11 +43,17 @@ public class VacacionesFragment extends Fragment implements View.OnClickListener
 
     private IVacaciones iVacaciones;
 
+    LottieAnimationView vacio;
+
+    TextView texto;
+
     private VacacionesInterface vacacionesInterface;
 
     FragmentVacacionesListener listener;
 
     ListView listViewVacacion;
+
+    ConstraintLayout fondo;
 
     ListAdapterVacaciones listAdapterVacaciones;
 
@@ -64,6 +73,7 @@ public class VacacionesFragment extends Fragment implements View.OnClickListener
         crearListView();
         accionFabSolicitarVacacion();
         esconderFAB();
+        validacion();
         return view;
     }
 
@@ -97,6 +107,8 @@ public class VacacionesFragment extends Fragment implements View.OnClickListener
         listViewVacacion = view.findViewById(R.id.listViewVacacion);
         fabSolicitarAdelanto = view.findViewById(R.id.fabSolicitarAdelantoVacacion);
         verVacacion = (ImageView) view.findViewById(R.id.imageViewTomarVacacion);
+        texto = view.findViewById(R.id.texto);
+        vacio = view.findViewById(R.id.lottieVacio);
     }
 
     private void accionFabSolicitarVacacion() {
@@ -114,6 +126,15 @@ public class VacacionesFragment extends Fragment implements View.OnClickListener
                 dialog.show(((MainActivity) getContext()).getSupportFragmentManager(), null);
 
     }
+    public void validacion(){
+        if(listvacaciones.size()==0){
+            System.out.println("ls");
+            texto.setText("No tienes Vacaciones para mostrar");
+            vacio.setVisibility(View.VISIBLE);
+
+
+        }
+    }
 
 
     public void listarVacaciones() {
@@ -125,10 +146,10 @@ public class VacacionesFragment extends Fragment implements View.OnClickListener
         call.enqueue(new Callback<ResponseVacaciones>() {
             @Override
             public void onResponse(Call<ResponseVacaciones> call, Response<ResponseVacaciones> response) {
-                System.out.println("RESPONSE: "+response);
                 if (response.isSuccessful()) {
                     System.out.println(response.isSuccessful());
                     listvacaciones = response.body().getAaData();
+                    System.out.println(listvacaciones.size());
                     listAdapterVacaciones = new ListAdapterVacaciones(getContext(),listvacaciones);
                     listViewVacacion.setAdapter(listAdapterVacaciones);
                     crearListView();

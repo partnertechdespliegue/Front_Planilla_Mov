@@ -81,7 +81,7 @@
                 android:layout_height="45dp"
                 android:src="@drawable/calendar"
                 android:layout_marginLeft="95dp"
-                android:background="@color/tres" />
+                android:background="@color/cuatro" />
         </RelativeLayout>
 
 
@@ -106,7 +106,7 @@
         android:layout_height="45dp"
         android:src="@drawable/calendar"
         android:layout_marginLeft="95dp"
-        android:background="@color/tres" />
+        android:background="@color/cuatro" />
 </RelativeLayout>
 
 
